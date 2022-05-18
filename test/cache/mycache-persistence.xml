@@ -1,0 +1,9 @@
+apiVersion: infinispan.org/v2alpha1
+kind: Cache
+metadata:
+  name: example-cache2
+  namespace: rhdg8
+spec:
+  clusterName: example-random
+  name: myXMLcache
+  template: <distributed-cache mode="SYNC" statistics="true"><encoding media-type="application/x-protostream"/><persistence><file-store/></persistence></distributed-cache>
