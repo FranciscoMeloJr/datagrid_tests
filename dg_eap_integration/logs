@@ -1,0 +1,1 @@
+$ oc process -f cluster-01-template.yaml | oc apply -f - project.project.openshift.io/eap-operator created project.project.openshift.io/eap7-test created operatorgroup.operators.coreos.com/eap created subscription.operators.coreos.com/eap-operator created wildflyserver.wildfly.org/eap-example created subscription.operators.coreos.com/datagrid-operator created
