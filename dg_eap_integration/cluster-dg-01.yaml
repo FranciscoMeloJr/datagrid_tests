@@ -93,8 +93,8 @@ parameters:
 - name: CLUSTER_NAMESPACE
   description: "The project where the RHDG cluster will be installed."
   required: false
-  value: "eap-operator"
+  value: "eap7-test"
 - name: CLUSTER_NAME
   description: "The name of the RHDG cluster."
   required: false
-  value: "eap7-test"
+  value: "dg-cluster"

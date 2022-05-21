@@ -1,0 +1,1 @@
+oc new-app registry.redhat.io/jboss-eap-7/eap74-openjdk8-openshift-rhel7:7.4.4-2 -p IMAGE_STREAM_NAMESPACE=eap-demo -p SOURCE_REPOSITORY_URL=https://github.com/jboss-developer/jboss-eap-quickstarts -p SOURCE_REPOSITORY_REF=7.3.x-openshift -p GALLEON_PROVISION_LAYERS=jaxrs-server -p CONTEXT_DIR=helloworld-html56
