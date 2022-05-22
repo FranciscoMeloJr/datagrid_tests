@@ -11,8 +11,8 @@
 #8. run both [done]
 
 mkdir DGIntegration;
-#wget -P DGIntegration http://download.eng.rdu2.redhat.com/released/JBoss-middleware//eap7/7.4.0/jboss-eap-7.4.0.zip
-#wget -P DGIntegration http://download.eng.rdu2.redhat.com/released/JBoss-middleware/datagrid/8.3.1/redhat-datagrid-8.3.1-server.zip
+wget -P DGIntegration http://download.eng.rdu2.redhat.com/released/JBoss-middleware//eap7/7.4.0/jboss-eap-7.4.0.zip
+wget -P DGIntegration http://download.eng.rdu2.redhat.com/released/JBoss-middleware/datagrid/8.3.1/redhat-datagrid-8.3.1-server.zip
 ## wget -P https://github.com/varsharain-a11y/distributable/blob/main/verify-cluster.war
 ## wget https://github.com/FranciscoMeloJr/datagrid_tests/tree/main/dg_eap_integration/verify-cluster.war
 ## wget -P https://github.com/FranciscoMeloJr/datagrid_tests/tree/main/dg_eap_integration/standalone-full-ha.xml
