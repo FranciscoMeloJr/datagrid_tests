@@ -5,3 +5,6 @@ The result should be the app deployed and the cache integration working when acc
 ### in OCP
 Also in attachment the OCP templates to do the same in OCP 4 environment using EAP and DG operators: template-01-complete.yaml and cluster-dg-01.yaml.
 The logs are for the OCP operatorion
+
+#### Thanks
+Thanks to Varsha Sharma's awesome testing application from https://github.com/varsharain-a11y/distributable/blob/main/verify-cluster.war
