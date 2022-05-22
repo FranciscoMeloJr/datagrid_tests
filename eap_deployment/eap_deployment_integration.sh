@@ -1,0 +1,2 @@
+oc new-project eap-demo --display-name 'EAP Test with JDBC'
+oc new-app registry.redhat.io/jboss-eap-7/eap74-openjdk8-openshift-rhel7:7.4.4-2 -p IMAGE_STREAM_NAMESPACE=eap-demo -p SOURCE_REPOSITORY_URL=https://github.com/jboss-developer/jboss-eap-quickstarts -p SOURCE_REPOSITORY_REF=7.3.x-openshift -p GALLEON_PROVISION_LAYERS=jaxrs-server,web-clustering -p CONTEXT_DIR=helloworld-html56 --build-env GALLEON_PROVISION_FEATURE_PACKS="org.jboss.eap:eap-datasources-galleon-pack:7.4.0.GA-redhat-00003"
