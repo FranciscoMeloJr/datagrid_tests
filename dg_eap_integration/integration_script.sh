@@ -5,10 +5,10 @@
 #2. download DG 8 [done]
 #3. downloaod EAP 7 [done]
 #4. unzip both [done]
-#5. run cli for dg 8 [doing]
+#5. run cli for dg 8 [done]
 #6. copy standalone-full-ha.xml to standalone/configuration [done]
-#7. copy the deployment verify-cluster.war
-#8. run both []
+#7. copy the deployment verify-cluster.war [done]
+#8. run both [done]
 
 mkdir DGIntegration;
 #wget -P DGIntegration http://download.eng.rdu2.redhat.com/released/JBoss-middleware//eap7/7.4.0/jboss-eap-7.4.0.zip
