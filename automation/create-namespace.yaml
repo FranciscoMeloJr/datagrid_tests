@@ -1,0 +1,23 @@
+apiVersion: template.openshift.io/v1
+kind: Template
+metadata:
+  name: eap-demo-template
+  annotations:
+    description: Template to deploy a EAP template in OCP.
+    tags: eap, eap-demo
+    iconClass: icon-wildfly
+    openshift.io/provider-display-name: Red Hat, Inc.
+    openshift.io/support-url: https://access.redhat.com
+objects:
+- apiVersion: project.openshift.io/v1
+  kind: Project
+  metadata:
+    name: ${TEMPLATE_NAMESPACE}
+    annotations:
+      openshift.io/description: "EAP template test"
+      openshift.io/display-name: "EAP template test"
+parameters:
+- name: TEMPLATE_NAMESPACE
+  description: "The project where the template image will be installed."
+  required: false
+  value: "eap-demo"
