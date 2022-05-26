@@ -1,0 +1,14 @@
+apiVersion: appdynamics.com/v1alpha1
+kind: Clusteragent
+metadata:
+  name: k8s-cluster-agent
+  namespace: appdynamics
+spec:
+  # content removed for brevity
+  instrumentationRules:
+    - namespaceRegex: dev
+      language: dotnetcore
+      appName: MyDotNetAppOnUbuntu
+      imageInfo:
+        image: "docker.io/appdynamics/dotnet-core-agent:20.11.0-linux"
+        agentMountPath: /opt/appdynamics
