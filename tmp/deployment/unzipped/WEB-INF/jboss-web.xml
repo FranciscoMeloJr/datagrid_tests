@@ -1,0 +1,9 @@
+<jboss-web>
+    <context-root>/verify-cluster</context-root>
+    <replication-config>
+        <replication-granularity>SESSION</replication-granularity>
+    </replication-config>
+    <max-active-sessions>2000</max-active-sessions>
+    <!-- <cache-name>verify-cluster</cache-name> -->
+    <!--<virtual-host>default-host</virtual-host>-->
+</jboss-web>
