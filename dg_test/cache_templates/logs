@@ -1,0 +1,2 @@
+$ oc apply -f mydistcache.yaml cache.infinispan.org/example-cache created
+$ oc apply -f mycache-persistence.xml  cache.infinispan.org/cache-persistence created

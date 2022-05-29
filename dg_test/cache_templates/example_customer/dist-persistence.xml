@@ -1,0 +1,9 @@
+apiVersion: infinispan.org/v2alpha1
+kind: Cache
+metadata:
+  name: cache-persistence
+  namespace: eap-test
+spec:
+  clusterName: dg-cluster
+  name: myXMLcache
+  template: <distributed-cache mode="SYNC" statistics="true"><encoding media-type="application/x-protostream"/><persistence><file-store/></persistence></distributed-cache>
