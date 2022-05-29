@@ -1,0 +1,17 @@
+batch
+/socket-binding-group=standard-sockets/remote-destination-outbound-socket-binding=remote-rhdg-server:add(host=eap-infinispan.dgeap.svc.cluster.local,port=11222)
+/subsystem=infinispan/remote-cache-container=rhdgcc:add(default-remote-cluster=data-grid-cluster,\
+        properties={infinispan.client.hotrod.sasl_mechanism=SCRAM-SHA-512,infinispan.client.hotrod.auth_username=rhdgadmin,infinispan.client.hotrod.auth_password=password@2})
+/subsystem=infinispan/remote-cache-container=rhdgcc/remote-cluster=data-grid-cluster:add(socket-bindings=[remote-rhdg-server])
+run-batch
+batch
+/subsystem=infinispan/cache-container=web/invalidation-cache=rhdg:add()
+/subsystem=infinispan/cache-container=web/invalidation-cache=rhdg/store=hotrod:add( remote-cache-container=rhdgcc,\
+                fetch-state=false,\
+                purge=false,\
+                passivation=false,\
+                shared=true)
+/subsystem=infinispan/cache-container=web/invalidation-cache=rhdg/component=transaction:add(mode=BATCH)
+/subsystem=infinispan/cache-container=web/invalidation-cache=rhdg/component=locking:add(isolation=REPEATABLE_READ)
+/subsystem=infinispan/cache-container=web:write-attribute(name=default-cache,value=rhdg)
+run-batch

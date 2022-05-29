@@ -1,0 +1,141 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"operators.coreos.com/v1alpha1","kind":"Subscription","metadata":{"annotations":{},"name":"datagrid-operator","namespace":"eap-operator"},"spec":{"channel":"8.2.x","installPlanApproval":"Automatic","name":"datagrid","source":"redhat-operators","sourceNamespace":"openshift-marketplace","startingCSV":"datagrid-operator.v8.2.8"}}
+  creationTimestamp: 2022-05-24T17:02:06Z
+  generation: 2
+  labels:
+    operators.coreos.com/datagrid.eap-operator: ""
+  managedFields:
+  - apiVersion: operators.coreos.com/v1alpha1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:kubectl.kubernetes.io/last-applied-configuration: {}
+      f:spec:
+        .: {}
+        f:channel: {}
+        f:installPlanApproval: {}
+        f:name: {}
+        f:source: {}
+        f:sourceNamespace: {}
+        f:startingCSV: {}
+    manager: oc
+    operation: Update
+    time: 2022-05-24T17:02:06Z
+  - apiVersion: operators.coreos.com/v1alpha1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .: {}
+          f:operators.coreos.com/datagrid.eap-operator: {}
+    manager: olm
+    operation: Update
+    time: 2022-05-24T17:02:06Z
+  - apiVersion: operators.coreos.com/v1alpha1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        .: {}
+        f:catalogHealth: {}
+        f:conditions: {}
+        f:currentCSV: {}
+        f:installPlanGeneration: {}
+        f:installPlanRef:
+          .: {}
+          f:apiVersion: {}
+          f:kind: {}
+          f:name: {}
+          f:namespace: {}
+          f:resourceVersion: {}
+          f:uid: {}
+        f:installedCSV: {}
+        f:installplan:
+          .: {}
+          f:apiVersion: {}
+          f:kind: {}
+          f:name: {}
+          f:uuid: {}
+        f:lastUpdated: {}
+        f:state: {}
+    manager: catalog
+    operation: Update
+    subresource: status
+    time: 2022-05-24T17:02:16Z
+  name: datagrid-operator
+  namespace: eap-operator
+  resourceVersion: "77782"
+  uid: f705679a-68e7-42bd-ba89-16355c3e4994
+spec:
+  channel: 8.3.x
+  installPlanApproval: Automatic
+  name: datagrid
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+  startingCSV: datagrid-operator.v8.2.8
+status:
+  catalogHealth:
+  - catalogSourceRef:
+      apiVersion: operators.coreos.com/v1alpha1
+      kind: CatalogSource
+      name: certified-operators
+      namespace: openshift-marketplace
+      resourceVersion: "58775"
+      uid: 9dd63e28-f9bd-4927-8980-f1273182b27a
+    healthy: true
+    lastUpdated: 2022-05-24T17:02:07Z
+  - catalogSourceRef:
+      apiVersion: operators.coreos.com/v1alpha1
+      kind: CatalogSource
+      name: community-operators
+      namespace: openshift-marketplace
+      resourceVersion: "59861"
+      uid: 85d81399-f68a-4fc1-b1b5-e5558fa280ab
+    healthy: true
+    lastUpdated: 2022-05-24T17:02:07Z
+  - catalogSourceRef:
+      apiVersion: operators.coreos.com/v1alpha1
+      kind: CatalogSource
+      name: redhat-marketplace
+      namespace: openshift-marketplace
+      resourceVersion: "58689"
+      uid: 4cd91262-fa4f-44f9-94c2-cf34fa1ac35f
+    healthy: true
+    lastUpdated: 2022-05-24T17:02:07Z
+  - catalogSourceRef:
+      apiVersion: operators.coreos.com/v1alpha1
+      kind: CatalogSource
+      name: redhat-operators
+      namespace: openshift-marketplace
+      resourceVersion: "58862"
+      uid: 6bdf14e3-43a5-469f-bc59-0d8bbb1898b6
+    healthy: true
+    lastUpdated: 2022-05-24T17:02:07Z
+  conditions:
+  - lastTransitionTime: 2022-05-24T17:02:07Z
+    message: all available catalogsources are healthy
+    reason: AllCatalogSourcesHealthy
+    status: "False"
+    type: CatalogSourcesUnhealthy
+  currentCSV: datagrid-operator.v8.3.4
+  installPlanGeneration: 4
+  installPlanRef:
+    apiVersion: operators.coreos.com/v1alpha1
+    kind: InstallPlan
+    name: install-5ksz9
+    namespace: eap-operator
+    resourceVersion: "77416"
+    uid: 875a0996-6fed-489d-bcd4-9d68a74967b6
+  installedCSV: datagrid-operator.v8.3.4
+  installplan:
+    apiVersion: operators.coreos.com/v1alpha1
+    kind: InstallPlan
+    name: install-5ksz9
+    uuid: 875a0996-6fed-489d-bcd4-9d68a74967b6
+  lastUpdated: 2022-05-24T17:51:40Z
+  state: AtLatestKnown

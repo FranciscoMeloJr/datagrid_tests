@@ -1,0 +1,33 @@
+### install the dg op, wilfly
+oc process -f cluster-dg-01.yaml | oc apply -f -
+oc process -f template-01-complete.yaml | oc apply -f -
+
+### get the install process
+$ oc get subscription datagrid-operator -o yaml | grep installPlanApproval
+...
+  installPlanApproval: Automatic                        <------------------------------ automatic
+
+### get info:
+$ oc get sub,csv
+NAME                                                  PACKAGE    SOURCE             CHANNEL
+subscription.operators.coreos.com/datagrid-operator   datagrid   redhat-operators   8.2.x
+subscription.operators.coreos.com/eap-operator        eap        redhat-operators   stable
+
+NAME                                                                  DISPLAY     VERSION   REPLACES                   PHASE
+clusterserviceversion.operators.coreos.com/datagrid-operator.v8.2.8   Data Grid   8.2.8     datagrid-operator.v8.2.7   Succeeded
+clusterserviceversion.operators.coreos.com/eap-operator.v2.3.2        JBoss EAP   2.3.2     eap-operator.v2.3.1        Succeeded
+
+$ oc get subscription datagrid-operator -o yaml | grep currentCSV
+        f:currentCSV: {}
+  currentCSV: datagrid-operator.v8.2.8 <-----
+
+### upgrade::
+$ oc edit subscription.operators.coreos.com/datagrid-operator
+subscription.operators.coreos.com/datagrid-operator edited    <------------- on this case I had a 8.2.8 from channel 8.2.x, so edit for channel 8.3
+
+### on OCP you will see the Operator will get deleted and a new one will arrive
+
+### confirming the upgrade::
+$ oc get subscription datagrid-operator -o yaml | grep currentCSV
+        f:currentCSV: {}
+  currentCSV: datagrid-operator.v8.3.4                         <----- upgrade done

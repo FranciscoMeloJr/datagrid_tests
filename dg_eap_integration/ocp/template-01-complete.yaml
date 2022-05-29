@@ -60,6 +60,29 @@ objects:
     source: redhat-operators
     sourceNamespace: openshift-marketplace
     startingCSV: datagrid-operator.v8.2.8
+- apiVersion: v1
+  kind: Secret
+  metadata:
+    name: ${CLUSTER_NAME}-credentials
+    namespace: ${CLUSTER_NAMESPACE}
+  labels:
+    type: middleware
+  type: Opaque 
+  stringData: 
+    identities.yaml: |-     
+      credentials:
+      - username: developer
+        password: developer
+        roles:
+          - application
+      - username: admin
+        password: changeme
+        roles:
+          - admin
+      - username: deployeruser
+        password: changeme
+        roles:
+          - deployer
 parameters:
 - name: OPERATOR_NAMESPACE
   description: "The project where the operator will be installed."
@@ -68,4 +91,8 @@ parameters:
 - name: CLUSTER_NAMESPACE
   description: "The project where the EAP cluster will be installed."
   required: false
-  value: "eap7-test"
+  value: "eap-test"
+- name: CLUSTER_NAME
+  description: "The name of the RHDG cluster."
+  required: false
+  value: "dg-cluster"

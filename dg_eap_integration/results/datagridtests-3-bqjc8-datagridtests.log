@@ -1,0 +1,597 @@
+2022-05-27 06:25:41 Launching EAP Server
+INFO Configuring JGroups cluster traffic encryption protocol to SYM_ENCRYPT.
+[0;33mWARN Detected missing JGroups encryption configuration, the communication within the cluster WILL NOT be encrypted.[0m
+[0;33mWARN No password defined for JGroups cluster. AUTH protocol will be disabled. Please define JGROUPS_CLUSTER_PASSWORD.[0m
+[0;33mWARN Environment variable OPENSHIFT_KUBE_PING_NAMESPACE undefined. Clustering will be unavailable. Please refer to the documentation for configuration.[0m
+INFO Configuring JGroups discovery protocol to kubernetes.KUBE_PING
+INFO Using PicketBox SSL configuration.
+INFO Access log is disabled, ignoring configuration.
+[0;33mWARN Configuration of an embedded messaging broker within the appserver is enabled but is not recommended. Support for such a configuration will be removed in a future release.[0m
+[0;33mWARN If you are not configuring messaging destinations, to disable configuring an embedded messaging broker set the DISABLE_EMBEDDED_JMS_BROKER environment variable to true.[0m
+INFO Extensions detected, server will be reloaded from remote CLI script.
+INFO Server started in admin mode, CLI script executed during server boot.
+INFO Running jboss-eap-7/eap74-openjdk11-openshift-rhel8 image, version 7.4.4
+=========================================================================
+
+  JBoss Bootstrap Environment
+
+  JBOSS_HOME: /opt/eap
+
+  JAVA: /usr/lib/jvm/java-11/bin/java
+
+  JAVA_OPTS: -javaagent:"/opt/eap/jboss-modules.jar"  -server -Xlog:gc*:file="/opt/eap/standalone/log/gc.log":time,uptimemillis:filecount=5,filesize=3M -Xms1303m -Xmx1303m -XX:MetaspaceSize=96m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=jdk.nashorn.api,com.sun.crypto.provider -Djava.awt.headless=true -XX:+UseParallelOldGC -XX:MinHeapFreeRatio=10 -XX:MaxHeapFreeRatio=20 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -XX:+ExitOnOutOfMemoryError -Djava.security.egd=file:/dev/./urandom  -Djboss.modules.settings.xml.url=file:///opt/jboss/container/wildfly/s2i/galleon/settings.xml  --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED --add-exports=jdk.unsupported/sun.reflect=ALL-UNNAMED --add-exports=java.desktop/sun.awt=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.ldap=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.security=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.management/javax.management=ALL-UNNAMED --add-opens=java.naming/javax.naming=ALL-UNNAMED
+
+=========================================================================
+
+[0m06:25:43,079 INFO  [org.jboss.modules] (main) JBoss Modules version 1.12.0.Final-redhat-00001
+[0m[0m06:25:43,816 INFO  [org.jboss.msc] (main) JBoss MSC version 1.4.12.Final-redhat-00001
+[0m[0m06:25:43,829 INFO  [org.jboss.threads] (main) JBoss Threads version 2.4.0.Final-redhat-00001
+[0m[0m06:25:44,020 INFO  [org.jboss.as] (MSC service thread 1-1) WFLYSRV0049: JBoss EAP 7.4.4.GA (WildFly Core 15.0.8.Final-redhat-00001) starting
+[0m[32m06:25:44,026 DEBUG [org.jboss.as.config] (MSC service thread 1-1) Configured system properties:
+	[Standalone] = 
+	awt.toolkit = sun.awt.X11.XToolkit
+	file.encoding = ANSI_X3.4-1968
+	file.separator = /
+	java.awt.graphicsenv = sun.awt.X11GraphicsEnvironment
+	java.awt.headless = true
+	java.awt.printerjob = sun.print.PSPrinterJob
+	java.class.path = /opt/eap/jboss-modules.jar
+	java.class.version = 55.0
+	java.home = /usr/lib/jvm/java-11-openjdk-11.0.15.0.10-2.el8_6.x86_64
+	java.io.tmpdir = /tmp
+	java.library.path = /usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+	java.net.preferIPv4Stack = true
+	java.runtime.name = OpenJDK Runtime Environment
+	java.runtime.version = 11.0.15+10-LTS
+	java.security.egd = file:/dev/./urandom
+	java.specification.name = Java Platform API Specification
+	java.specification.vendor = Oracle Corporation
+	java.specification.version = 11
+	java.util.logging.manager = org.jboss.logmanager.LogManager
+	java.vendor = Red Hat, Inc.
+	java.vendor.url = https://www.redhat.com/
+	java.vendor.url.bug = https://bugzilla.redhat.com/enter_bug.cgi?product=Red%20Hat%20Enterprise%20Linux%208&component=java-11-openjdk
+	java.vendor.version = 18.9
+	java.version = 11.0.15
+	java.version.date = 2022-04-19
+	java.vm.compressedOopsMode = 32-bit
+	java.vm.info = mixed mode, sharing
+	java.vm.name = OpenJDK 64-Bit Server VM
+	java.vm.specification.name = Java Virtual Machine Specification
+	java.vm.specification.vendor = Oracle Corporation
+	java.vm.specification.version = 11
+	java.vm.vendor = Red Hat, Inc.
+	java.vm.version = 11.0.15+10-LTS
+	javax.management.builder.initial = org.jboss.as.jmx.PluggableMBeanServerBuilder
+	jboss.bind.address = 10.128.2.20
+	jboss.bind.address.management = 0.0.0.0
+	jboss.bind.address.private = 10.128.2.20
+	jboss.home.dir = /opt/eap
+	jboss.host.name = datagridtests-3-bqjc8
+	jboss.messaging.cluster.password = <redacted>
+	jboss.messaging.host = 10.128.2.20
+	jboss.modules.dir = /opt/eap/modules
+	jboss.modules.settings.xml.url = file:///opt/jboss/container/wildfly/s2i/galleon/settings.xml
+	jboss.modules.system.pkgs = jdk.nashorn.api,com.sun.crypto.provider
+	jboss.node.name = datagridtests-3-bqjc8
+	jboss.qualified.host.name = datagridtests-3-bqjc8
+	jboss.server.base.dir = /opt/eap/standalone
+	jboss.server.config.dir = /opt/eap/standalone/configuration
+	jboss.server.data.dir = /opt/eap/standalone/data
+	jboss.server.deploy.dir = /opt/eap/standalone/data/content
+	jboss.server.log.dir = /opt/eap/standalone/log
+	jboss.server.name = datagridtests-3-bqjc8
+	jboss.server.persist.config = true
+	jboss.server.temp.dir = /opt/eap/standalone/tmp
+	jdk.debug = release
+	line.separator = 
+
+	logging.configuration = file:/opt/eap/standalone/configuration/logging.properties
+	module.path = /opt/eap/modules
+	org.jboss.boot.log.file = /opt/eap/standalone/log/server.log
+	org.jboss.resolver.warning = true
+	org.wildfly.internal.cli.boot.hook.marker.dir = /tmp/cli-boot-reload-marker-1653632741
+	org.wildfly.internal.cli.boot.hook.reload.skip = true
+	org.wildfly.internal.cli.boot.hook.script = /tmp/cli-script-1653632741.cli
+	org.wildfly.internal.cli.boot.hook.script.error.file = /tmp/cli-script-error-1653632741.cli
+	org.wildfly.internal.cli.boot.hook.script.output.file = /tmp/cli-script-output-1653632741.cli
+	org.wildfly.internal.cli.boot.hook.script.properties = /tmp/cli-script-property-1653632741.cli
+	org.wildfly.internal.cli.boot.hook.script.warn.file = /tmp/cli-warning-1653632741.log
+	os.arch = amd64
+	os.name = Linux
+	os.version = 4.18.0-305.45.1.el8_4.x86_64
+	path.separator = :
+	sun.arch.data.model = 64
+	sun.boot.library.path = /usr/lib/jvm/java-11-openjdk-11.0.15.0.10-2.el8_6.x86_64/lib
+	sun.cpu.endian = little
+	sun.cpu.isalist = 
+	sun.io.unicode.encoding = UnicodeLittle
+	sun.java.command = /opt/eap/jboss-modules.jar -javaagent:/usr/share/java/jolokia-jvm-agent/jolokia-jvm.jar=config=/opt/jboss/container/jolokia/etc/jolokia.properties -mp /opt/eap/modules org.jboss.as.standalone -Djboss.home.dir=/opt/eap -Djboss.server.base.dir=/opt/eap/standalone -c standalone-openshift.xml -bmanagement 0.0.0.0 -Djboss.server.data.dir=/opt/eap/standalone/data -Dwildfly.statistics-enabled=true -b 10.128.2.20 -bprivate 10.128.2.20 -Djboss.node.name=datagridtests-3-bqjc8 -Djboss.messaging.host=10.128.2.20 -Djboss.messaging.cluster.password=<redacted> --start-mode=admin-only -Dorg.wildfly.internal.cli.boot.hook.script=/tmp/cli-script-1653632741.cli -Dorg.wildfly.internal.cli.boot.hook.marker.dir=/tmp/cli-boot-reload-marker-1653632741 -Dorg.wildfly.internal.cli.boot.hook.script.properties=/tmp/cli-script-property-1653632741.cli -Dorg.wildfly.internal.cli.boot.hook.script.output.file=/tmp/cli-script-output-1653632741.cli -Dorg.wildfly.internal.cli.boot.hook.script.error.file=/tmp/cli-script-error-1653632741.cli -Dorg.wildfly.internal.cli.boot.hook.script.warn.file=/tmp/cli-warning-1653632741.log -Dorg.wildfly.internal.cli.boot.hook.reload.skip=true
+	sun.java.launcher = SUN_STANDARD
+	sun.jnu.encoding = ANSI_X3.4-1968
+	sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+	sun.os.patch.level = unknown
+	user.country = US
+	user.dir = /home/jboss
+	user.home = /home/jboss
+	user.language = en
+	user.name = jboss
+	user.timezone = Etc/UTC
+	wildfly.statistics-enabled = true
+[0m[32m06:25:44,027 DEBUG [org.jboss.as.config] (MSC service thread 1-1) VM Arguments: -D[Standalone] -javaagent:/opt/eap/jboss-modules.jar -Xlog:gc*:file=/opt/eap/standalone/log/gc.log:time,uptimemillis:filecount=5,filesize=3M -Xms1303m -Xmx1303m -XX:MetaspaceSize=96m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=jdk.nashorn.api,com.sun.crypto.provider -Djava.awt.headless=true -XX:+UseParallelOldGC -XX:MinHeapFreeRatio=10 -XX:MaxHeapFreeRatio=20 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -XX:+ExitOnOutOfMemoryError -Djava.security.egd=file:/dev/./urandom -Djboss.modules.settings.xml.url=file:///opt/jboss/container/wildfly/s2i/galleon/settings.xml --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED --add-exports=jdk.unsupported/sun.reflect=ALL-UNNAMED --add-exports=java.desktop/sun.awt=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.ldap=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.security=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.management/javax.management=ALL-UNNAMED --add-opens=java.naming/javax.naming=ALL-UNNAMED -Dorg.jboss.boot.log.file=/opt/eap/standalone/log/server.log -Dlogging.configuration=file:/opt/eap/standalone/configuration/logging.properties 
+[0m[0m06:25:44,412 INFO  [stdout] (JolokiaStart) I> No access restrictor found, access to any MBean is allowed
+[0m[0m06:25:44,419 INFO  [stdout] (JolokiaStart) Jolokia: Agent started with URL https://10.128.2.20:8778/jolokia/
+[0mWARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.wildfly.extension.elytron.SSLDefinitions (jar:file:/opt/jboss/container/wildfly/s2i/galleon/galleon-m2-repository/org/wildfly/core/wildfly-elytron-integration/15.0.8.Final-redhat-00001/wildfly-elytron-integration-15.0.8.Final-redhat-00001.jar!/) to method com.sun.net.ssl.internal.ssl.Provider.isFIPS()
+WARNING: Please consider reporting this to the maintainers of org.wildfly.extension.elytron.SSLDefinitions
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[0m06:25:45,204 INFO  [org.wildfly.security] (ServerService Thread Pool -- 28) ELY00001: WildFly Elytron version 1.15.11.Final-redhat-00002
+[0m[0m06:25:45,644 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 21) WFLYCTL0033: Extension 'security' is deprecated and may not be supported in future versions
+[0m[0m06:25:46,264 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
+[0m[33m06:25:46,271 WARN  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0035: No security realm or http server authentication defined for http management service; all access will be unrestricted.
+[0m[0m06:25:46,290 INFO  [org.xnio] (MSC service thread 1-1) XNIO version 3.8.6.Final-redhat-00001
+[0m[0m06:25:46,299 INFO  [org.xnio.nio] (MSC service thread 1-1) XNIO NIO Implementation Version 3.8.6.Final-redhat-00001
+[0m[0m06:25:46,358 INFO  [org.jboss.remoting] (MSC service thread 1-2) JBoss Remoting version 5.0.23.SP1-redhat-00001
+[0m[33m06:25:46,398 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-2) WFLYELY00023: KeyStore file '/opt/eap/standalone/configuration/application.keystore' does not exist. Used blank.
+[0m[33m06:25:46,403 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-2) WFLYELY01084: KeyStore /opt/eap/standalone/configuration/application.keystore not found, it will be auto generated on first use with a self-signed certificate for host localhost
+[0m[0m06:25:46,432 INFO  [org.jboss.as.patching] (MSC service thread 1-2) WFLYPAT0050: JBoss EAP cumulative patch ID is: base, one-off patches include: none
+[0m[33m06:25:46,546 WARN  [org.jboss.as.remoting] (MSC service thread 1-1) ****** All authentication is ANONYMOUS for org.jboss.as.remoting.RemotingHttpUpgradeService
+[0m[0m06:25:46,603 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+[0m[0m06:25:46,605 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: JBoss EAP 7.4.4.GA (WildFly Core 15.0.8.Final-redhat-00001) started in 3945ms - Started 74 of 98 services (38 services are lazy, passive or on-demand)
+[0m[0m06:25:46,607 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://0.0.0.0:9990/management
+[0m[0m06:25:46,607 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0054: Admin console is not enabled
+[0m[0m06:25:46,608 INFO  [org.jboss.as.controller] (Controller Boot Thread) WFLYCTL0472: Checking for presence of marker file indicating that the server has been restarted following execution of the additional commands from the CLI script
+[0m[0m06:25:46,608 INFO  [org.jboss.as.controller] (Controller Boot Thread) WFLYCTL0474: No marker file found indicating that the server has been restarted following execution of the additional commands from the CLI script
+[0m[0m06:25:46,608 INFO  [org.jboss.as.controller] (Controller Boot Thread) WFLYCTL0465: Initialised the additional boot CLI script functionality. The CLI commands will be read from /tmp/cli-script-1653632741.cli. The server will remain running in admin-only mode after these have been executed, and the result of the cli operations will be written to /tmp/cli-boot-reload-marker-1653632741/wf-cli-invoker-result
+[0m[0m06:25:46,621 INFO  [org.jboss.as.controller] (Controller Boot Thread) WFLYCTL0467: Running the additional commands from the CLI script /tmp/cli-script-1653632741.cli against the server which is running in admin-only mode
+[0m[0m06:25:46,623 INFO  [org.jboss.as.cli] (Controller Boot Thread) WFLYCLI0001: Processing CLI script /tmp/cli-script-1653632741.cli
+[0m[0m06:25:47,342 INFO  [org.jboss.as.cli] (Controller Boot Thread) WFLYCLI0005: Done processing CLI script /tmp/cli-script-1653632741.cli
+[0m[0m06:25:47,343 INFO  [org.jboss.as.controller] (Controller Boot Thread) WFLYCTL0468: Completed running the commands from the CLI script
+[0m[0m06:25:49,448 INFO  [org.jboss.modules] (CLI command executor) JBoss Modules version 1.12.0.Final-redhat-00001
+[0m[0m06:25:49,540 INFO  [org.jboss.msc] (CLI command executor) JBoss MSC version 1.4.12.Final-redhat-00001
+[0m[0m06:25:49,547 INFO  [org.jboss.threads] (CLI command executor) JBoss Threads version 2.4.0.Final-redhat-00001
+[0m[0m06:25:49,698 INFO  [org.jboss.as] (MSC service thread 1-1) WFLYSRV0049: JBoss EAP 7.4.4.GA (WildFly Core 15.0.8.Final-redhat-00001) starting
+[0m[32m06:25:49,700 DEBUG [org.jboss.as.config] (MSC service thread 1-1) Configured system properties:
+	awt.toolkit = sun.awt.X11.XToolkit
+	com.ibm.jsse2.overrideDefaultTLS = true
+	file.encoding = ANSI_X3.4-1968
+	file.separator = /
+	java.awt.graphicsenv = sun.awt.X11GraphicsEnvironment
+	java.awt.printerjob = sun.print.PSPrinterJob
+	java.class.path = /opt/eap/jboss-modules.jar
+	java.class.version = 55.0
+	java.home = /usr/lib/jvm/java-11-openjdk-11.0.15.0.10-2.el8_6.x86_64
+	java.io.tmpdir = /tmp
+	java.library.path = /usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+	java.runtime.name = OpenJDK Runtime Environment
+	java.runtime.version = 11.0.15+10-LTS
+	java.specification.name = Java Platform API Specification
+	java.specification.vendor = Oracle Corporation
+	java.specification.version = 11
+	java.util.logging.manager = org.jboss.logmanager.LogManager
+	java.vendor = Red Hat, Inc.
+	java.vendor.url = https://www.redhat.com/
+	java.vendor.url.bug = https://bugzilla.redhat.com/enter_bug.cgi?product=Red%20Hat%20Enterprise%20Linux%208&component=java-11-openjdk
+	java.vendor.version = 18.9
+	java.version = 11.0.15
+	java.version.date = 2022-04-19
+	java.vm.compressedOopsMode = Zero based
+	java.vm.info = mixed mode, sharing
+	java.vm.name = OpenJDK 64-Bit Server VM
+	java.vm.specification.name = Java Virtual Machine Specification
+	java.vm.specification.vendor = Oracle Corporation
+	java.vm.specification.version = 11
+	java.vm.vendor = Red Hat, Inc.
+	java.vm.version = 11.0.15+10-LTS
+	jboss.home.dir = /opt/eap
+	jboss.host.name = datagridtests-3-bqjc8
+	jboss.modules.dir = /opt/eap/modules
+	jboss.modules.settings.xml.url = file:///opt/jboss/container/wildfly/s2i/galleon/settings.xml
+	jboss.modules.system.pkgs = com.sun.java.swing
+	jboss.node.name = datagridtests-3-bqjc8
+	jboss.qualified.host.name = datagridtests-3-bqjc8
+	jboss.server.base.dir = /opt/eap/standalone
+	jboss.server.config.dir = /opt/eap/standalone/configuration
+	jboss.server.content.dir = /opt/eap/standalone/data/content
+	jboss.server.data.dir = /opt/eap/standalone/data
+	jboss.server.deploy.dir = /opt/eap/standalone/data/content
+	jboss.server.log.dir = /opt/eap/standalone/log
+	jboss.server.name = datagridtests-3-bqjc8
+	jboss.server.persist.config = true
+	jboss.server.temp.dir = /opt/eap/standalone/tmp
+	jdk.debug = release
+	line.separator = 
+
+	logging.configuration = file:/opt/eap/bin/jboss-cli-logging.properties
+	module.path = /opt/eap/modules
+	org.jboss.boot.log.file = /opt/eap/standalone/log/server.log
+	org.jboss.resolver.warning = true
+	org.wildfly.logging.embedded = false
+	os.arch = amd64
+	os.name = Linux
+	os.version = 4.18.0-305.45.1.el8_4.x86_64
+	path.separator = :
+	sun.arch.data.model = 64
+	sun.boot.library.path = /usr/lib/jvm/java-11-openjdk-11.0.15.0.10-2.el8_6.x86_64/lib
+	sun.cpu.endian = little
+	sun.cpu.isalist = 
+	sun.io.unicode.encoding = UnicodeLittle
+	sun.java.command = /opt/eap/jboss-modules.jar -mp /opt/eap/modules org.jboss.as.cli --file=/opt/eap/extensions/actions.cli
+	sun.java.launcher = SUN_STANDARD
+	sun.jnu.encoding = ANSI_X3.4-1968
+	sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+	sun.os.patch.level = unknown
+	user.country = US
+	user.dir = /home/jboss
+	user.home = /home/jboss
+	user.language = en
+	user.name = jboss
+	user.timezone = Etc/UTC
+[0m[32m06:25:49,702 DEBUG [org.jboss.as.config] (MSC service thread 1-1) VM Arguments: -Djboss.modules.settings.xml.url=file:///opt/jboss/container/wildfly/s2i/galleon/settings.xml --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED --add-exports=jdk.unsupported/sun.reflect=ALL-UNNAMED --add-exports=java.desktop/sun.awt=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.ldap=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.security=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.management/javax.management=ALL-UNNAMED --add-opens=java.naming/javax.naming=ALL-UNNAMED -Djboss.modules.system.pkgs=com.sun.java.swing -Dcom.ibm.jsse2.overrideDefaultTLS=true -Dlogging.configuration=file:/opt/eap/bin/jboss-cli-logging.properties 
+[0mWARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.wildfly.extension.elytron.SSLDefinitions (jar:file:/opt/jboss/container/wildfly/s2i/galleon/galleon-m2-repository/org/wildfly/core/wildfly-elytron-integration/15.0.8.Final-redhat-00001/wildfly-elytron-integration-15.0.8.Final-redhat-00001.jar!/) to method com.sun.net.ssl.internal.ssl.Provider.isFIPS()
+WARNING: Please consider reporting this to the maintainers of org.wildfly.extension.elytron.SSLDefinitions
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[0m06:25:50,646 INFO  [org.wildfly.security] (ServerService Thread Pool -- 28) ELY00001: WildFly Elytron version 1.15.11.Final-redhat-00002
+[0m[0m06:25:51,082 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 22) WFLYCTL0033: Extension 'security' is deprecated and may not be supported in future versions
+[0m[33m06:25:51,855 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-2) WFLYELY00023: KeyStore file '/opt/eap/standalone/configuration/application.keystore' does not exist. Used blank.
+[0m[33m06:25:51,876 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-1) WFLYELY01084: KeyStore /opt/eap/standalone/configuration/application.keystore not found, it will be auto generated on first use with a self-signed certificate for host localhost
+[0m[0m06:25:51,954 INFO  [org.jboss.as.patching] (MSC service thread 1-2) WFLYPAT0050: JBoss EAP cumulative patch ID is: base, one-off patches include: none
+[0m[0m06:25:52,093 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+[0m[0m06:25:52,094 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: JBoss EAP 7.4.4.GA (WildFly Core 15.0.8.Final-redhat-00001) started in 2613ms - Started 58 of 89 services (38 services are lazy, passive or on-demand)
+[0m{"outcome" => "success"}
+The batch executed successfully
+The batch executed successfully
+[0m06:25:52,369 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0050: JBoss EAP 7.4.4.GA (WildFly Core 15.0.8.Final-redhat-00001) stopped in 38ms
+[0mINFO Configuring the server with custom extensions script /tmp/cli-reload-configuration-script-1653632752.cli
+[0m06:25:54,835 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0050: JBoss EAP 7.4.4.GA (WildFly Core 15.0.8.Final-redhat-00001) stopped in 41ms
+[0m[0m06:25:54,836 INFO  [org.jboss.as] (MSC service thread 1-1) WFLYSRV0049: JBoss EAP 7.4.4.GA (WildFly Core 15.0.8.Final-redhat-00001) starting
+[0m[32m06:25:54,838 DEBUG [org.jboss.as.config] (MSC service thread 1-1) Configured system properties:
+	[Standalone] = 
+	awt.toolkit = sun.awt.X11.XToolkit
+	file.encoding = ANSI_X3.4-1968
+	file.separator = /
+	java.awt.graphicsenv = sun.awt.X11GraphicsEnvironment
+	java.awt.headless = true
+	java.awt.printerjob = sun.print.PSPrinterJob
+	java.class.path = /opt/eap/jboss-modules.jar
+	java.class.version = 55.0
+	java.home = /usr/lib/jvm/java-11-openjdk-11.0.15.0.10-2.el8_6.x86_64
+	java.io.tmpdir = /tmp
+	java.library.path = /usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+	java.net.preferIPv4Stack = true
+	java.runtime.name = OpenJDK Runtime Environment
+	java.runtime.version = 11.0.15+10-LTS
+	java.security.egd = file:/dev/./urandom
+	java.specification.name = Java Platform API Specification
+	java.specification.vendor = Oracle Corporation
+	java.specification.version = 11
+	java.util.logging.manager = org.jboss.logmanager.LogManager
+	java.vendor = Red Hat, Inc.
+	java.vendor.url = https://www.redhat.com/
+	java.vendor.url.bug = https://bugzilla.redhat.com/enter_bug.cgi?product=Red%20Hat%20Enterprise%20Linux%208&component=java-11-openjdk
+	java.vendor.version = 18.9
+	java.version = 11.0.15
+	java.version.date = 2022-04-19
+	java.vm.compressedOopsMode = 32-bit
+	java.vm.info = mixed mode, sharing
+	java.vm.name = OpenJDK 64-Bit Server VM
+	java.vm.specification.name = Java Virtual Machine Specification
+	java.vm.specification.vendor = Oracle Corporation
+	java.vm.specification.version = 11
+	java.vm.vendor = Red Hat, Inc.
+	java.vm.version = 11.0.15+10-LTS
+	javax.management.builder.initial = org.jboss.as.jmx.PluggableMBeanServerBuilder
+	jboss.bind.address = 10.128.2.20
+	jboss.bind.address.management = 0.0.0.0
+	jboss.bind.address.private = 10.128.2.20
+	jboss.home.dir = /opt/eap
+	jboss.host.name = datagridtests-3-bqjc8
+	jboss.messaging.cluster.password = <redacted>
+	jboss.messaging.host = 10.128.2.20
+	jboss.modules.dir = /opt/eap/modules
+	jboss.modules.settings.xml.url = file:///opt/jboss/container/wildfly/s2i/galleon/settings.xml
+	jboss.modules.system.pkgs = jdk.nashorn.api,com.sun.crypto.provider
+	jboss.node.name = datagridtests-3-bqjc8
+	jboss.qualified.host.name = datagridtests-3-bqjc8
+	jboss.server.base.dir = /opt/eap/standalone
+	jboss.server.config.dir = /opt/eap/standalone/configuration
+	jboss.server.data.dir = /opt/eap/standalone/data
+	jboss.server.deploy.dir = /opt/eap/standalone/data/content
+	jboss.server.log.dir = /opt/eap/standalone/log
+	jboss.server.name = datagridtests-3-bqjc8
+	jboss.server.persist.config = true
+	jboss.server.temp.dir = /opt/eap/standalone/tmp
+	jdk.debug = release
+	jolokia.agent = https://10.128.2.20:8778/jolokia/
+	line.separator = 
+
+	logging.configuration = file:/opt/eap/standalone/configuration/logging.properties
+	module.path = /opt/eap/modules
+	org.jboss.boot.log.file = /opt/eap/standalone/log/server.log
+	org.jboss.resolver.warning = true
+	org.wildfly.internal.cli.boot.hook.script.error.file = /tmp/cli-script-error-1653632741.cli
+	org.wildfly.internal.cli.boot.hook.script.output.file = /tmp/cli-script-output-1653632741.cli
+	org.wildfly.internal.cli.boot.hook.script.properties = /tmp/cli-script-property-1653632741.cli
+	org.wildfly.internal.cli.boot.hook.script.warn.file = /tmp/cli-warning-1653632741.log
+	os.arch = amd64
+	os.name = Linux
+	os.version = 4.18.0-305.45.1.el8_4.x86_64
+	path.separator = :
+	sun.arch.data.model = 64
+	sun.boot.library.path = /usr/lib/jvm/java-11-openjdk-11.0.15.0.10-2.el8_6.x86_64/lib
+	sun.cpu.endian = little
+	sun.cpu.isalist = 
+	sun.io.unicode.encoding = UnicodeLittle
+	sun.java.command = /opt/eap/jboss-modules.jar -javaagent:/usr/share/java/jolokia-jvm-agent/jolokia-jvm.jar=config=/opt/jboss/container/jolokia/etc/jolokia.properties -mp /opt/eap/modules org.jboss.as.standalone -Djboss.home.dir=/opt/eap -Djboss.server.base.dir=/opt/eap/standalone -c standalone-openshift.xml -bmanagement 0.0.0.0 -Djboss.server.data.dir=/opt/eap/standalone/data -Dwildfly.statistics-enabled=true -b 10.128.2.20 -bprivate 10.128.2.20 -Djboss.node.name=datagridtests-3-bqjc8 -Djboss.messaging.host=10.128.2.20 -Djboss.messaging.cluster.password=<redacted> --start-mode=admin-only -Dorg.wildfly.internal.cli.boot.hook.script=/tmp/cli-script-1653632741.cli -Dorg.wildfly.internal.cli.boot.hook.marker.dir=/tmp/cli-boot-reload-marker-1653632741 -Dorg.wildfly.internal.cli.boot.hook.script.properties=/tmp/cli-script-property-1653632741.cli -Dorg.wildfly.internal.cli.boot.hook.script.output.file=/tmp/cli-script-output-1653632741.cli -Dorg.wildfly.internal.cli.boot.hook.script.error.file=/tmp/cli-script-error-1653632741.cli -Dorg.wildfly.internal.cli.boot.hook.script.warn.file=/tmp/cli-warning-1653632741.log -Dorg.wildfly.internal.cli.boot.hook.reload.skip=true
+	sun.java.launcher = SUN_STANDARD
+	sun.jnu.encoding = ANSI_X3.4-1968
+	sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+	sun.nio.ch.bugLevel = 
+	sun.os.patch.level = unknown
+	user.country = US
+	user.dir = /home/jboss
+	user.home = /home/jboss
+	user.language = en
+	user.name = jboss
+	user.timezone = Etc/UTC
+	wildfly.statistics-enabled = true
+[0m[32m06:25:54,840 DEBUG [org.jboss.as.config] (MSC service thread 1-1) VM Arguments: -D[Standalone] -javaagent:/opt/eap/jboss-modules.jar -Xlog:gc*:file=/opt/eap/standalone/log/gc.log:time,uptimemillis:filecount=5,filesize=3M -Xms1303m -Xmx1303m -XX:MetaspaceSize=96m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=jdk.nashorn.api,com.sun.crypto.provider -Djava.awt.headless=true -XX:+UseParallelOldGC -XX:MinHeapFreeRatio=10 -XX:MaxHeapFreeRatio=20 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -XX:+ExitOnOutOfMemoryError -Djava.security.egd=file:/dev/./urandom -Djboss.modules.settings.xml.url=file:///opt/jboss/container/wildfly/s2i/galleon/settings.xml --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED --add-exports=jdk.unsupported/sun.reflect=ALL-UNNAMED --add-exports=java.desktop/sun.awt=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.ldap=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.security=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.management/javax.management=ALL-UNNAMED --add-opens=java.naming/javax.naming=ALL-UNNAMED -Dorg.jboss.boot.log.file=/opt/eap/standalone/log/server.log -Dlogging.configuration=file:/opt/eap/standalone/configuration/logging.properties 
+[0mINFO Duration: 2361 milliseconds
+[0m06:25:55,014 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 19) WFLYCTL0033: Extension 'security' is deprecated and may not be supported in future versions
+[0m[0m06:25:55,107 INFO  [org.jboss.as.repository] (ServerService Thread Pool -- 17) WFLYDR0001: Content added at location /opt/eap/standalone/data/content/ca/e4c25c1c53ebf4243446b53854748829df876f/content
+[0m[0m06:25:55,189 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
+[0m[33m06:25:55,190 WARN  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0035: No security realm or http server authentication defined for http management service; all access will be unrestricted.
+[0m[33m06:25:55,202 WARN  [org.jboss.as.remoting] (MSC service thread 1-1) ****** All authentication is ANONYMOUS for org.jboss.as.remoting.RemotingHttpUpgradeService
+[0m[0m06:25:55,228 INFO  [org.wildfly.extension.health] (ServerService Thread Pool -- 50) WFLYHEALTH0001: Activating Base Health Subsystem
+[0m[0m06:25:55,245 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 51) WFLYCLINF0001: Activating Infinispan subsystem.
+[0m[0m06:25:55,248 INFO  [org.jboss.as.jaxrs] (ServerService Thread Pool -- 53) WFLYRS0016: RESTEasy version 3.15.3.Final-redhat-00001
+[0m[0m06:25:55,234 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 52) WFLYIO001: Worker 'default' has auto-configured to 2 IO threads with 16 max task threads based on your 1 available processors
+[0m[0m06:25:55,248 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 42) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 1.4)
+[0m[33m06:25:55,287 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-2) WFLYELY00023: KeyStore file '/opt/eap/standalone/configuration/application.keystore' does not exist. Used blank.
+[0m[0m06:25:55,268 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 59) WFLYJSF0007: Activated the following Jakarta Server Faces Implementations: [main]
+[0m[0m06:25:55,288 INFO  [org.jboss.as.connector] (MSC service thread 1-2) WFLYJCA0009: Starting Jakarta Connectors Subsystem (WildFly/IronJacamar 1.5.3.Final-redhat-00001)
+[0m[0m06:25:55,294 INFO  [org.jboss.as.clustering.jgroups] (ServerService Thread Pool -- 56) WFLYCLJG0001: Activating JGroups subsystem. JGroups version 4.2.11
+[0m[0m06:25:55,296 INFO  [org.jboss.as.security] (ServerService Thread Pool -- 69) WFLYSEC0002: Activating Security Subsystem
+[0m[0m06:25:55,324 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 74) WFLYWS0002: Activating WebServices Extension
+[0m[0m06:25:55,344 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 63) WFLYNAM0001: Activating Naming Subsystem
+[0m[33m06:25:55,388 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-1) WFLYELY01084: KeyStore /opt/eap/standalone/configuration/application.keystore not found, it will be auto generated on first use with a self-signed certificate for host localhost
+[0m[0m06:25:55,393 INFO  [org.jboss.as.security] (MSC service thread 1-1) WFLYSEC0001: Current PicketBox version=5.0.3.Final-redhat-00008
+[0m[0m06:25:55,398 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) WFLYJCA0018: Started Driver service with driver-name = h2
+[0m[0m06:25:55,416 INFO  [org.wildfly.extension.metrics] (ServerService Thread Pool -- 62) WFLYMETRICS0001: Activating Base Metrics Subsystem
+[0m[0m06:25:55,420 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0003: Undertow 2.2.16.Final-redhat-00001 starting
+[0m[0m06:25:55,517 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 73) WFLYUT0014: Creating file handler for path '/opt/eap/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+[0m[0m06:25:55,688 INFO  [org.jboss.as.ejb3] (MSC service thread 1-2) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 4 (per class), which is derived from the number of CPUs on this host.
+[0m[0m06:25:55,688 INFO  [org.jboss.as.ejb3] (MSC service thread 1-2) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 16 (per class), which is derived from thread worker pool sizing.
+[0m[0m06:25:55,689 INFO  [org.jboss.as.naming] (MSC service thread 1-2) WFLYNAM0003: Starting Naming Service
+[0m[0m06:25:55,780 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-1) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+[0m[0m06:25:55,807 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0012: Started server default-server.
+[0m[0m06:25:55,877 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) Queuing requests.
+[0m[0m06:25:55,879 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0018: Host default-host starting
+[0m[0m06:25:55,882 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0006: Undertow HTTP listener default listening on 0.0.0.0:8080
+[0m[0m06:25:55,884 INFO  [org.jboss.as.patching] (MSC service thread 1-2) WFLYPAT0050: JBoss EAP cumulative patch ID is: base, one-off patches include: none
+[0m[0m06:25:55,912 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-1) WFLYDS0013: Started FileSystemDeploymentService for directory /opt/eap/standalone/deployments
+[0m[0m06:25:55,914 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0027: Starting deployment of "verify-cluster.war" (runtime-name: "verify-cluster.war")
+[0m[0m06:25:55,933 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-2) WFLYMSGAMQ0075: AIO wasn't located on this platform, it will fall back to using pure Java NIO. Your platform is Linux, install LibAIO to enable the AIO journal and achieve optimal performance.
+[0m[0m06:25:56,022 INFO  [org.jboss.ws.common.management] (MSC service thread 1-1) JBWS022052: Starting JBossWS 5.4.4.Final-redhat-00001 (Apache CXF 3.3.12.redhat-00001) 
+[0m[0m06:25:56,069 INFO  [org.jboss.as.ejb3] (MSC service thread 1-1) WFLYEJB0493: Jakarta Enterprise Beans subsystem suspension complete
+[0m[0m06:25:56,171 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 76) AMQ221000: live Message Broker is starting with configuration Broker Configuration (clustered=false,journalDirectory=/opt/eap/standalone/data/activemq/journal,bindingsDirectory=/opt/eap/standalone/data/activemq/bindings,largeMessagesDirectory=/opt/eap/standalone/data/activemq/largemessages,pagingDirectory=/opt/eap/standalone/data/activemq/paging)
+[0m[0m06:25:56,220 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 76) AMQ221013: Using NIO Journal
+[0m[0m06:25:56,337 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 76) AMQ221043: Protocol module found: [artemis-server]. Adding protocol support for: CORE
+[0m[0m06:25:56,338 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 76) AMQ221043: Protocol module found: [artemis-hornetq-protocol]. Adding protocol support for: HORNETQ
+[0m[0m06:25:56,400 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 76) AMQ221034: Waiting indefinitely to obtain live lock
+[0m[0m06:25:56,400 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 76) AMQ221035: Live Server Obtained live lock
+[0m[0m06:25:56,501 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 76) AMQ221003: Deploying ANYCAST queue jms.queue.ExpiryQueue on address jms.queue.ExpiryQueue
+[0m[0m06:25:56,968 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 76) AMQ221003: Deploying ANYCAST queue jms.queue.DLQ on address jms.queue.DLQ
+[0m[0m06:25:56,978 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-1) WFLYMSGAMQ0016: Registered HTTP upgrade for activemq-remoting protocol handled by http-acceptor-throughput acceptor
+[0m[0m06:25:56,981 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-1) WFLYMSGAMQ0016: Registered HTTP upgrade for activemq-remoting protocol handled by http-acceptor acceptor
+[0m[0m06:25:56,982 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-1) WFLYMSGAMQ0016: Registered HTTP upgrade for activemq-remoting protocol handled by http-acceptor acceptor
+[0m[0m06:25:56,982 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-1) WFLYMSGAMQ0016: Registered HTTP upgrade for activemq-remoting protocol handled by http-acceptor-throughput acceptor
+[0m[0m06:25:57,228 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 76) AMQ221007: Server is now live
+[0m[0m06:25:57,228 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 76) AMQ221001: Apache ActiveMQ Artemis Message Broker version 2.16.0.redhat-00034 [default, nodeID=ddb26f08-dd85-11ec-a93b-0a580a800214] 
+[0m[0m06:25:57,263 INFO  [org.wildfly.extension.messaging-activemq] (ServerService Thread Pool -- 76) WFLYMSGAMQ0002: Bound messaging object to jndi name java:jboss/exported/jms/RemoteConnectionFactory
+[0m[0m06:25:57,282 INFO  [org.jgroups.protocols.kubernetes.KUBE_PING] (ServerService Thread Pool -- 77) namespace default set; clustering enabled
+[0m[0m06:25:57,294 INFO  [org.wildfly.extension.messaging-activemq] (ServerService Thread Pool -- 80) WFLYMSGAMQ0002: Bound messaging object to jndi name java:/ConnectionFactory
+[0m[33m06:25:57,304 WARN  [org.wildfly.clustering.web.undertow] (MSC service thread 1-2) WFLYCLWEBUT0004: Legacy <replication-config/> overriding attached distributable session management provider for verify-cluster.war
+[0m[0m06:25:57,979 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-1) WFLYJCA0007: Registered connection factory java:/JmsXA
+[0m[0m06:25:58,106 INFO  [org.apache.activemq.artemis.ra] (MSC service thread 1-1) AMQ151007: Resource adaptor started
+[0m[0m06:25:58,107 INFO  [org.jboss.as.connector.services.resourceadapters.ResourceAdapterActivatorService$ResourceAdapterActivator] (MSC service thread 1-1) IJ020002: Deployed: file://RaActivatoractivemq-ra
+[0m[0m06:25:58,110 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-2) WFLYJCA0002: Bound Jakarta Connectors ConnectionFactory [java:/JmsXA]
+[0m[0m06:25:58,110 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-1) WFLYJCA0118: Binding connection factory named java:/JmsXA to alias java:jboss/DefaultJMSConnectionFactory
+[0m[0m06:25:58,482 INFO  [org.infinispan.HOTROD] (ServerService Thread Pool -- 78) ISPN004021: Infinispan version: Infinispan 'Corona Extra' 11.0.15.Final-redhat-00001
+[0m[0m06:25:58,483 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 78) WFLYCLINF0029: Started remote cache container 'rhdg'.
+[0m[33m06:26:01,335 WARN  [org.jgroups.protocols.kubernetes.KUBE_PING] (ServerService Thread Pool -- 77) failed getting JSON response from Kubernetes Client[masterUrl=https://172.30.0.1:443/api/v1, headers={Authorization=#MASKED:1326#}, connectTimeout=5000, readTimeout=30000, operationAttempts=3, operationSleep=1000, streamProvider=org.jgroups.protocols.kubernetes.stream.TokenStreamProvider@68da1d6a] for cluster [ee], namespace [default], labels [null]; encountered [java.lang.Exception: 3 attempt(s) with a 1000ms sleep to execute [OpenStream] failed. Last failure was [java.io.IOException: Server returned HTTP response code: 403 for URL: https://172.30.0.1:443/api/v1/namespaces/default/pods]]
+[0m[0m06:26:04,337 INFO  [org.jgroups.protocols.pbcast.GMS] (ServerService Thread Pool -- 77) datagridtests-3-bqjc8: no members discovered after 6270 ms: creating cluster as coordinator
+[0m[0m06:26:04,793 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 80) ISPN000128: Infinispan version: Infinispan 'Corona Extra' 11.0.15.Final-redhat-00001
+[0m[0m06:26:04,858 INFO  [org.infinispan.PERSISTENCE] (ServerService Thread Pool -- 80) ISPN000556: Starting user marshaller 'org.wildfly.clustering.infinispan.spi.marshalling.InfinispanProtoStreamMarshaller'
+[0m[0m06:26:04,858 INFO  [org.infinispan.PERSISTENCE] (ServerService Thread Pool -- 77) ISPN000556: Starting user marshaller 'org.wildfly.clustering.infinispan.spi.marshalling.InfinispanProtoStreamMarshaller'
+[0m[0m06:26:04,860 INFO  [org.infinispan.PERSISTENCE] (ServerService Thread Pool -- 79) ISPN000556: Starting user marshaller 'org.wildfly.clustering.infinispan.spi.marshalling.InfinispanProtoStreamMarshaller'
+[0m[0m06:26:04,858 INFO  [org.infinispan.PERSISTENCE] (ServerService Thread Pool -- 78) ISPN000556: Starting user marshaller 'org.wildfly.clustering.infinispan.marshalling.jboss.JBossMarshaller'
+[0m[0m06:26:05,034 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 78) ISPN000078: Starting JGroups channel ee
+[0m[0m06:26:05,035 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 80) ISPN000078: Starting JGroups channel ee
+[0m[0m06:26:05,035 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 77) ISPN000078: Starting JGroups channel ee
+[0m[0m06:26:05,035 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 79) ISPN000078: Starting JGroups channel ee
+[0m[0m06:26:05,040 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 80) ISPN000094: Received new cluster view for channel ee: [datagridtests-3-bqjc8|0] (1) [datagridtests-3-bqjc8]
+[0m[0m06:26:05,040 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 77) ISPN000094: Received new cluster view for channel ee: [datagridtests-3-bqjc8|0] (1) [datagridtests-3-bqjc8]
+[0m[0m06:26:05,041 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 79) ISPN000094: Received new cluster view for channel ee: [datagridtests-3-bqjc8|0] (1) [datagridtests-3-bqjc8]
+[0m[0m06:26:05,040 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 78) ISPN000094: Received new cluster view for channel ee: [datagridtests-3-bqjc8|0] (1) [datagridtests-3-bqjc8]
+[0m[0m06:26:05,047 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 79) ISPN000079: Channel ee local address is datagridtests-3-bqjc8, physical addresses are [10.128.2.20:7600]
+[0m[0m06:26:05,047 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 80) ISPN000079: Channel ee local address is datagridtests-3-bqjc8, physical addresses are [10.128.2.20:7600]
+[0m[0m06:26:05,050 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 78) ISPN000079: Channel ee local address is datagridtests-3-bqjc8, physical addresses are [10.128.2.20:7600]
+[0m[0m06:26:05,059 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 77) ISPN000079: Channel ee local address is datagridtests-3-bqjc8, physical addresses are [10.128.2.20:7600]
+[0m[0m06:26:05,101 INFO  [org.infinispan.CONFIG] (MSC service thread 1-2) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+[0m[0m06:26:05,103 INFO  [org.infinispan.CONFIG] (MSC service thread 1-2) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+[0m[0m06:26:05,431 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 80) WFLYCLINF0002: Started default-server cache from web container
+[0m[0m06:26:05,434 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 78) WFLYCLINF0002: Started http-remoting-connector cache from ejb container
+[0m[31m06:26:05,558 ERROR [org.infinispan.HOTROD] (HotRod-client-async-pool-0) ISPN004007: Exception encountered. Retry 10 out of 10: org.infinispan.client.hotrod.exceptions.TransportException:: java.lang.SecurityException: ISPN004031: The selected authentication mechanism 'SCRAM-SHA-512' is not among the supported server mechanisms: []
+	at org.infinispan.client.hotrod@11.0.15.Final-redhat-00001//org.infinispan.client.hotrod.impl.transport.netty.ActivationHandler.exceptionCaught(ActivationHandler.java:53)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:302)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:281)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.AbstractChannelHandlerContext.fireExceptionCaught(AbstractChannelHandlerContext.java:273)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.DefaultChannelPipeline$HeadContext.exceptionCaught(DefaultChannelPipeline.java:1377)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:302)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:281)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.DefaultChannelPipeline.fireExceptionCaught(DefaultChannelPipeline.java:907)
+	at org.infinispan.client.hotrod@11.0.15.Final-redhat-00001//org.infinispan.client.hotrod.impl.transport.netty.AuthHandler.lambda$channelActive$2(AuthHandler.java:87)
+	at java.base/java.util.concurrent.CompletableFuture.uniExceptionally(CompletableFuture.java:986)
+	at java.base/java.util.concurrent.CompletableFuture$UniExceptionally.tryFire(CompletableFuture.java:970)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:506)
+	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2073)
+	at org.infinispan.client.hotrod@11.0.15.Final-redhat-00001//org.infinispan.client.hotrod.impl.operations.HotRodOperation.complete(HotRodOperation.java:175)
+	at org.infinispan.client.hotrod@11.0.15.Final-redhat-00001//org.infinispan.client.hotrod.impl.operations.AuthMechListOperation.acceptResponse(AuthMechListOperation.java:56)
+	at org.infinispan.client.hotrod@11.0.15.Final-redhat-00001//org.infinispan.client.hotrod.impl.transport.netty.HeaderDecoder.decode(HeaderDecoder.java:147)
+	at org.infinispan.client.hotrod@11.0.15.Final-redhat-00001//org.infinispan.client.hotrod.impl.transport.netty.HintedReplayingDecoder.callDecode(HintedReplayingDecoder.java:94)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:276)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:795)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:480)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:378)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.jboss.as.clustering.common@7.4.4.GA-redhat-00011//org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
+	at org.jboss.as.clustering.common@7.4.4.GA-redhat-00011//org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
+	at org.jboss.as.clustering.common@7.4.4.GA-redhat-00011//org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
+	at org.jboss.as.clustering.common@7.4.4.GA-redhat-00011//org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.lang.SecurityException: ISPN004031: The selected authentication mechanism 'SCRAM-SHA-512' is not among the supported server mechanisms: []
+	at org.infinispan.client.hotrod@11.0.15.Final-redhat-00001//org.infinispan.client.hotrod.impl.transport.netty.AuthHandler.lambda$channelActive$0(AuthHandler.java:51)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1072)
+	... 30 more
+
+[0m[0m06:26:05,566 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 77) WFLYCLINF0003: Stopped verify-cluster.war cache from web container
+[0m[31m06:26:05,566 ERROR [org.jboss.msc.service.fail] (ServerService Thread Pool -- 77) MSC000001: Failed to start service org.wildfly.clustering.infinispan.cache.web."verify-cluster.war": org.jboss.msc.service.StartException in service org.wildfly.clustering.infinispan.cache.web."verify-cluster.war": org.infinispan.commons.CacheConfigurationException: Error starting component org.infinispan.persistence.manager.PersistenceManager
+	at org.wildfly.clustering.service@7.4.4.GA-redhat-00011//org.wildfly.clustering.service.FunctionalService.start(FunctionalService.java:66)
+	at org.wildfly.clustering.service@7.4.4.GA-redhat-00011//org.wildfly.clustering.service.AsyncServiceConfigurator$AsyncService.lambda$start$0(AsyncServiceConfigurator.java:117)
+	at org.jboss.threads@2.4.0.Final-redhat-00001//org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+	at org.jboss.threads@2.4.0.Final-redhat-00001//org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
+	at org.jboss.threads@2.4.0.Final-redhat-00001//org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+	at org.jboss.threads@2.4.0.Final-redhat-00001//org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+	at org.jboss.threads@2.4.0.Final-redhat-00001//org.jboss.threads.JBossThread.run(JBossThread.java:513)
+Caused by: org.infinispan.commons.CacheConfigurationException: Error starting component org.infinispan.persistence.manager.PersistenceManager
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.factories.impl.BasicComponentRegistryImpl.startWrapper(BasicComponentRegistryImpl.java:560)
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.factories.impl.BasicComponentRegistryImpl.access$700(BasicComponentRegistryImpl.java:30)
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.factories.impl.BasicComponentRegistryImpl$ComponentWrapper.running(BasicComponentRegistryImpl.java:775)
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.factories.impl.BasicComponentRegistryImpl.startDependencies(BasicComponentRegistryImpl.java:610)
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.factories.impl.BasicComponentRegistryImpl.doStartWrapper(BasicComponentRegistryImpl.java:574)
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.factories.impl.BasicComponentRegistryImpl.startWrapper(BasicComponentRegistryImpl.java:552)
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.factories.impl.BasicComponentRegistryImpl.access$700(BasicComponentRegistryImpl.java:30)
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.factories.impl.BasicComponentRegistryImpl$ComponentWrapper.running(BasicComponentRegistryImpl.java:775)
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.factories.impl.BasicComponentRegistryImpl.startDependencies(BasicComponentRegistryImpl.java:610)
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.factories.impl.BasicComponentRegistryImpl.doStartWrapper(BasicComponentRegistryImpl.java:574)
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.factories.impl.BasicComponentRegistryImpl.startWrapper(BasicComponentRegistryImpl.java:552)
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.factories.impl.BasicComponentRegistryImpl.access$700(BasicComponentRegistryImpl.java:30)
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.factories.impl.BasicComponentRegistryImpl$ComponentWrapper.running(BasicComponentRegistryImpl.java:775)
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.factories.impl.BasicComponentRegistryImpl.startDependencies(BasicComponentRegistryImpl.java:610)
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.factories.impl.BasicComponentRegistryImpl.doStartWrapper(BasicComponentRegistryImpl.java:574)
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.factories.impl.BasicComponentRegistryImpl.startWrapper(BasicComponentRegistryImpl.java:552)
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.factories.impl.BasicComponentRegistryImpl.access$700(BasicComponentRegistryImpl.java:30)
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.factories.impl.BasicComponentRegistryImpl$ComponentWrapper.running(BasicComponentRegistryImpl.java:775)
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.factories.impl.BasicComponentRegistryImpl.startDependencies(BasicComponentRegistryImpl.java:610)
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.factories.impl.BasicComponentRegistryImpl.doStartWrapper(BasicComponentRegistryImpl.java:574)
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.factories.impl.BasicComponentRegistryImpl.startWrapper(BasicComponentRegistryImpl.java:552)
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.factories.impl.BasicComponentRegistryImpl.access$700(BasicComponentRegistryImpl.java:30)
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.factories.impl.BasicComponentRegistryImpl$ComponentWrapper.running(BasicComponentRegistryImpl.java:775)
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.factories.AbstractComponentRegistry.internalStart(AbstractComponentRegistry.java:341)
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.factories.AbstractComponentRegistry.start(AbstractComponentRegistry.java:237)
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.factories.ComponentRegistry.start(ComponentRegistry.java:210)
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.cache.impl.CacheImpl.start(CacheImpl.java:1009)
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.cache.impl.AbstractDelegatingCache.start(AbstractDelegatingCache.java:512)
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.manager.DefaultCacheManager.wireAndStartCache(DefaultCacheManager.java:697)
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.manager.DefaultCacheManager.createCache(DefaultCacheManager.java:643)
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.manager.DefaultCacheManager.internalGetCache(DefaultCacheManager.java:532)
+	at org.infinispan@11.0.15.Final-redhat-00001//org.infinispan.manager.DefaultCacheManager.getCache(DefaultCacheManager.java:510)
+	at org.jboss.as.clustering.infinispan@7.4.4.GA-redhat-00011//org.jboss.as.clustering.infinispan.DefaultCacheContainer.getCache(DefaultCacheContainer.java:85)
+	at org.wildfly.clustering.infinispan.spi@7.4.4.GA-redhat-00011//org.wildfly.clustering.infinispan.spi.service.CacheServiceConfigurator.get(CacheServiceConfigurator.java:77)
+	at org.wildfly.clustering.infinispan.spi@7.4.4.GA-redhat-00011//org.wildfly.clustering.infinispan.spi.service.CacheServiceConfigurator.get(CacheServiceConfigurator.java:55)
+	at org.wildfly.clustering.service@7.4.4.GA-redhat-00011//org.wildfly.clustering.service.FunctionalService.start(FunctionalService.java:63)
+	... 7 more
+Caused by: java.util.concurrent.CompletionException: org.infinispan.persistence.spi.PersistenceException: org.infinispan.client.hotrod.exceptions.TransportException:: java.lang.SecurityException: ISPN004031: The selected authentication mechanism 'SCRAM-SHA-512' is not among the supported server mechanisms: []
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:314)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:319)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1739)
+	at org.jboss.threads@2.4.0.Final-redhat-00001//org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+	at org.jboss.threads@2.4.0.Final-redhat-00001//org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
+	at org.jboss.threads@2.4.0.Final-redhat-00001//org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+	at org.jboss.threads@2.4.0.Final-redhat-00001//org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1348)
+	at org.jboss.as.clustering.common@7.4.4.GA-redhat-00011//org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
+	at org.jboss.as.clustering.common@7.4.4.GA-redhat-00011//org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: org.infinispan.persistence.spi.PersistenceException: org.infinispan.client.hotrod.exceptions.TransportException:: java.lang.SecurityException: ISPN004031: The selected authentication mechanism 'SCRAM-SHA-512' is not among the supported server mechanisms: []
+	at org.jboss.as.clustering.infinispan@7.4.4.GA-redhat-00011//org.jboss.as.clustering.infinispan.subsystem.remote.HotRodStore$2.run(HotRodStore.java:111)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1736)
+	... 7 more
+Caused by: org.infinispan.client.hotrod.exceptions.TransportException:: java.lang.SecurityException: ISPN004031: The selected authentication mechanism 'SCRAM-SHA-512' is not among the supported server mechanisms: []
+	at org.infinispan.client.hotrod@11.0.15.Final-redhat-00001//org.infinispan.client.hotrod.impl.transport.netty.ActivationHandler.exceptionCaught(ActivationHandler.java:53)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:302)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:281)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.AbstractChannelHandlerContext.fireExceptionCaught(AbstractChannelHandlerContext.java:273)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.DefaultChannelPipeline$HeadContext.exceptionCaught(DefaultChannelPipeline.java:1377)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:302)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:281)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.DefaultChannelPipeline.fireExceptionCaught(DefaultChannelPipeline.java:907)
+	at org.infinispan.client.hotrod@11.0.15.Final-redhat-00001//org.infinispan.client.hotrod.impl.transport.netty.AuthHandler.lambda$channelActive$2(AuthHandler.java:87)
+	at java.base/java.util.concurrent.CompletableFuture.uniExceptionally(CompletableFuture.java:986)
+	at java.base/java.util.concurrent.CompletableFuture$UniExceptionally.tryFire(CompletableFuture.java:970)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:506)
+	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2073)
+	at org.infinispan.client.hotrod@11.0.15.Final-redhat-00001//org.infinispan.client.hotrod.impl.operations.HotRodOperation.complete(HotRodOperation.java:175)
+	at org.infinispan.client.hotrod@11.0.15.Final-redhat-00001//org.infinispan.client.hotrod.impl.operations.AuthMechListOperation.acceptResponse(AuthMechListOperation.java:56)
+	at org.infinispan.client.hotrod@11.0.15.Final-redhat-00001//org.infinispan.client.hotrod.impl.transport.netty.HeaderDecoder.decode(HeaderDecoder.java:147)
+	at org.infinispan.client.hotrod@11.0.15.Final-redhat-00001//org.infinispan.client.hotrod.impl.transport.netty.HintedReplayingDecoder.callDecode(HintedReplayingDecoder.java:94)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:276)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:795)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:480)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:378)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty@4.1.63.Final-redhat-00001//io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.jboss.as.clustering.common@7.4.4.GA-redhat-00011//org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
+	at org.jboss.as.clustering.common@7.4.4.GA-redhat-00011//org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
+	... 3 more
+Caused by: java.lang.SecurityException: ISPN004031: The selected authentication mechanism 'SCRAM-SHA-512' is not among the supported server mechanisms: []
+	at org.infinispan.client.hotrod@11.0.15.Final-redhat-00001//org.infinispan.client.hotrod.impl.transport.netty.AuthHandler.lambda$channelActive$0(AuthHandler.java:51)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1072)
+	... 30 more
+
+[0m[31m06:26:05,573 ERROR [org.jboss.as.controller.management-operation] (Controller Boot Thread) WFLYCTL0013: Operation ("deploy") failed - address: ([("deployment" => "verify-cluster.war")]) - failure description: {"WFLYCTL0080: Failed services" => {"org.wildfly.clustering.infinispan.cache.web.\"verify-cluster.war\"" => "org.infinispan.commons.CacheConfigurationException: Error starting component org.infinispan.persistence.manager.PersistenceManager
+    Caused by: org.infinispan.commons.CacheConfigurationException: Error starting component org.infinispan.persistence.manager.PersistenceManager
+    Caused by: java.util.concurrent.CompletionException: org.infinispan.persistence.spi.PersistenceException: org.infinispan.client.hotrod.exceptions.TransportException:: java.lang.SecurityException: ISPN004031: The selected authentication mechanism 'SCRAM-SHA-512' is not among the supported server mechanisms: []
+    Caused by: org.infinispan.persistence.spi.PersistenceException: org.infinispan.client.hotrod.exceptions.TransportException:: java.lang.SecurityException: ISPN004031: The selected authentication mechanism 'SCRAM-SHA-512' is not among the supported server mechanisms: []
+    Caused by: org.infinispan.client.hotrod.exceptions.TransportException:: java.lang.SecurityException: ISPN004031: The selected authentication mechanism 'SCRAM-SHA-512' is not among the supported server mechanisms: []
+    Caused by: java.lang.SecurityException: ISPN004031: The selected authentication mechanism 'SCRAM-SHA-512' is not among the supported server mechanisms: []"}}
+[0m[0m06:26:05,673 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 43) WFLYSRV0010: Deployed "verify-cluster.war" (runtime-name : "verify-cluster.war")
+[0m[0m06:26:05,686 INFO  [org.jboss.as.controller] (Controller Boot Thread) WFLYCTL0183: Service status report
+WFLYCTL0186:   Services which failed to start:      service org.wildfly.clustering.infinispan.cache.web."verify-cluster.war": org.infinispan.commons.CacheConfigurationException: Error starting component org.infinispan.persistence.manager.PersistenceManager
+WFLYCTL0448: 8 additional services are down due to their dependencies being missing or failed
+[0m[0m06:26:05,719 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+[0m[31m06:26:05,721 ERROR [org.jboss.as] (Controller Boot Thread) WFLYSRV0026: JBoss EAP 7.4.4.GA (WildFly Core 15.0.8.Final-redhat-00001) started (with errors) in 10880ms - Started 559 of 843 services (10 services failed or missing dependencies, 554 services are lazy, passive or on-demand)
+[0m[0m06:26:05,722 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://0.0.0.0:9990/management
+[0m[0m06:26:05,723 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0054: Admin console is not enabled
+[0m
