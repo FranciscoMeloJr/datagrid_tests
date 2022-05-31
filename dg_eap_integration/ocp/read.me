@@ -31,3 +31,18 @@ subscription.operators.coreos.com/datagrid-operator edited    <------------- on 
 $ oc get subscription datagrid-operator -o yaml | grep currentCSV
         f:currentCSV: {}
   currentCSV: datagrid-operator.v8.3.4                         <----- upgrade done
+
+
+### In regards to endpoints:
+
+1. Adding a second socketbinding for an endpoint (i.e two for default) will result in problems:
+~~~
+              socketBinding: "default" <--- must be declared
+              securityRealm: "default"
+~~~
+
+2. Adding a random socketbinding (which is not on the configuration) will result in problems:
+~~~
+              socketBinding: "mydefault" <--- must be declared
+              securityRealm: "default"
+~~~
