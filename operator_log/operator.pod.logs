@@ -1,0 +1,20 @@
+{"level":"info","ts":1654198262.1425953,"logger":"cmd","msg":"Go Version: go1.16.12"}
+{"level":"info","ts":1654198262.1426773,"logger":"cmd","msg":"Go OS/Arch: linux/amd64"}
+{"level":"info","ts":1654198262.1426835,"logger":"cmd","msg":"Version of operator-sdk: v0.18.2"}
+{"level":"info","ts":1654198262.1426885,"logger":"cmd","msg":"Operator Version: 0.5.3"}
+{"level":"info","ts":1654198262.1439056,"logger":"leader","msg":"Trying to become the leader."}
+I0602 19:31:04.225431 1 request.go:621] Throttling request took 1.04530633s, request: GET:https://172.30.0.1:443/apis/snapshot.storage.k8s.io/v1beta1?timeout=32s
+{"level":"info","ts":1654198265.5927851,"logger":"leader","msg":"No pre-existing lock was found."}
+{"level":"info","ts":1654198265.6024568,"logger":"leader","msg":"Became the leader."}
+{"level":"info","ts":1654198268.056079,"logger":"controller-runtime.metrics","msg":"metrics server is starting to listen","addr":"0.0.0.0:8383"}
+{"level":"info","ts":1654198268.0565307,"logger":"cmd","msg":"Registering Components."}
+{"level":"info","ts":1654198268.0567138,"logger":"utils","msg":"detecting platform version..."}
+{"level":"info","ts":1654198268.0616348,"logger":"utils","msg":"route.openshift.io found in apis, platform is OpenShift"}
+{"level":"info","ts":1654198268.0616758,"logger":"utils","msg":"PlatformInfo [Name: OpenShift, K8SVersion: 1.23, OS: linux/amd64]"}
+{"level":"info","ts":1654198268.063385,"logger":"utils","msg":"detecting platform version..."}
+{"level":"info","ts":1654198268.0667274,"logger":"utils","msg":"route.openshift.io found in apis, platform is OpenShift"}
+{"level":"info","ts":1654198268.0667534,"logger":"utils","msg":"PlatformInfo [Name: OpenShift, K8SVersion: 1.23, OS: linux/amd64]"}
+{"level":"info","ts":1654198273.0087776,"logger":"metrics","msg":"Metrics Service object created","Service.Name":"eap-operator-metrics","Service.Namespace":"eap-operator"}
+I0602 19:31:14.259030 1 request.go:621] Throttling request took 1.244962751s, request: GET:https://172.30.0.1:443/apis/network.operator.openshift.io/v1?timeout=32s
+{"level":"info","ts":1654198275.4660594,"logger":"cmd","msg":"Could not create ServiceMonitor object","error":"servicemonitors.monitoring.coreos.com \"eap-operator-metrics\" is forbidden: cannot set blockOwnerDeletion if an ownerReference refers to a resource you can't set finalizers on: , <nil>"}
+{"level":"info","ts":1654198275.4660985,"logger":"cmd","msg":"Starting the Cmd."}
