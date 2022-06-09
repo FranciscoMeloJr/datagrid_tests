@@ -36,16 +36,20 @@ objects:
       endpointAuthentication: false
       endpointEncryption:
         type: None
+    expose:
+      type: LoadBalancer
     service:
-      container:
-        ephemeralStorage: true
       type: DataGrid
       sites:
         local:
+          name: SiteB
           expose:
-            port: 30000
-            type: NodePort
-          name: NYC
+            type: ClusterIP
+          maxRelayNodes: 1
+        locations:
+          - name: SiteB
+            clusterName: dg-cluster-lon
+            namespace: dg-test-lon
 - apiVersion: v1
   kind: ConfigMap
   metadata:
@@ -98,8 +102,8 @@ parameters:
 - name: CLUSTER_NAMESPACE
   description: "The project where the RHDG cluster will be installed."
   required: false
-  value: "eap-test"
+  value: "dg-test-nyc"
 - name: CLUSTER_NAME
   description: "The name of the RHDG cluster."
   required: false
-  value: "dg-cluster1"
+  value: "dg-cluster-nyc"

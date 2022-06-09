@@ -36,6 +36,7 @@ objects:
   spec:
     targetNamespaces:
       - ${CLUSTER_NAMESPACE}
+      - ${CLUSTER_NAMESPACE1}
 - apiVersion: v1
   kind: Secret
   metadata:
