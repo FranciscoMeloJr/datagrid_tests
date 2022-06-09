@@ -47,7 +47,7 @@ objects:
             type: ClusterIP
           maxRelayNodes: 1
         locations:
-          - name: SiteB
+          - name: SiteA
             clusterName: dg-cluster-lon
             namespace: dg-test-lon
 - apiVersion: v1
