@@ -12,13 +12,6 @@ objects:
 - apiVersion: project.openshift.io/v1
   kind: Project
   metadata:
-    name: ${OPERATOR_NAMESPACE}
-    annotations:
-      openshift.io/description: "This project contains all the resources related to the operator of DG"
-      openshift.io/display-name: "DG - Operator"
-- apiVersion: project.openshift.io/v1
-  kind: Project
-  metadata:
     name: ${CLUSTER_NAMESPACE}
     annotations:
       openshift.io/description: "This project contains all the clusters deployed of DG"
@@ -30,7 +23,7 @@ objects:
     namespace: ${OPERATOR_NAMESPACE}
   spec:
     channel: 8.2.x
-    installPlanApproval: Automatic 
+    installPlanApproval: Manual 
     name: datagrid
     source: redhat-operators
     sourceNamespace: openshift-marketplace

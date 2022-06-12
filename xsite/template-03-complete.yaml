@@ -1,79 +1,79 @@
 apiVersion: template.openshift.io/v1
 kind: Template
 metadata:
-  name: dg-xsite
+  name: rhdg8-caches
   annotations:
-    description: Template to deploy a DG operator on OCP 4 - obviously based on Alvaro's work
-    tags: datagrid, xsite, datagrid-operator
+    description: Template to configure caches inside a RHDG cluster on OCP.
+    tags: infinispan,datagrid,operator
     iconClass: icon-datagrid
     openshift.io/provider-display-name: Red Hat, Inc.
     openshift.io/support-url: https://access.redhat.com
 objects:
-- apiVersion: project.openshift.io/v1
-  kind: Project
+- apiVersion: infinispan.org/v2alpha1
+  kind: Cache
   metadata:
-    name: ${CLUSTER_NAMESPACE}
-    annotations:
-      openshift.io/description: "This project contains all the clusters deployed of DG"
-      openshift.io/display-name: "DG NYC"
-- apiVersion: operators.coreos.com/v1alpha1
-  kind: Subscription
-  metadata:
-    name: datagrid-operator
-    namespace: ${OPERATOR_NAMESPACE}
-  spec:
-    channel: 8.2.x
-    installPlanApproval: Automatic 
-    name: datagrid
-    source: redhat-operators
-    sourceNamespace: openshift-marketplace
-    startingCSV: datagrid-operator.v8.2.8
-- apiVersion: operators.coreos.com/v1
-  kind: OperatorGroup
-  metadata:
-    name: infinispan
-    namespace: ${OPERATOR_NAMESPACE}
-  spec:
-    targetNamespaces:
-      - ${CLUSTER_NAMESPACE}
-      - ${CLUSTER_NAMESPACE1}
-- apiVersion: v1
-  kind: Secret
-  metadata:
-    name: ${CLUSTER_NAME}-credentials
+    name: ${CLUSTER_NAME}-operator-cache-01
     namespace: ${CLUSTER_NAMESPACE}
-  labels:
-    type: middleware
-  type: Opaque 
-  stringData: 
-    identities.yaml: |-     
-      credentials:
-      - username: developer
-        password: developer
-        roles:
-          - application
-      - username: admin
-        password: changeme
-        roles:
-          - admin
-      - username: deployeruser
-        password: changeme
-        roles:
-          - deployer
+    labels:
+      type: middleware
+  spec:
+    clusterName: ${CLUSTER_NAME}
+    name:  operator-cache-01
+    template: >-
+      <distributed-cache name="doesnotapply" owners="1" mode="ASYNC" statistics="true">
+        <encoding media-type="application/x-protostream"/>
+        <state-transfer enabled="false"/>
+        <memory>
+          <binary eviction="MEMORY" size="400000000"/> <!-- 400 MB -->
+        </memory>
+        <expiration lifespan="600000"/> <!-- 10 min -->
+      </distributed-cache>
+- apiVersion: infinispan.org/v2alpha1
+  kind: Cache
+  metadata:
+    name: ${CLUSTER_NAME}-operator-cache-02
+    namespace: ${CLUSTER_NAMESPACE}
+    labels:
+      type: middleware
+  spec:
+    clusterName: ${CLUSTER_NAME}
+    name:  operator-cache-02
+    templateName: proto-dist-template
+- apiVersion: infinispan.org/v2alpha1
+  kind: Cache
+  metadata:
+    name: ${CLUSTER_NAME}-operator-cache-03
+    namespace: ${CLUSTER_NAMESPACE}
+    labels:
+      type: middleware
+  spec:
+    clusterName: ${CLUSTER_NAME}
+    name:  operator-cache-03
+    template: >-
+      <distributed-cache name="eu-customers" owners="1" mode="ASYNC" statistics="true">
+        <encoding media-type="application/x-protostream"/>
+        <state-transfer enabled="false"/>
+        <memory>
+          <binary eviction="MEMORY" size="400000000"/> <!-- 400 MB -->
+        </memory>
+        <expiration lifespan="600000"/> <!-- 10 min -->
+          <backups>
+          <backup site="LON"
+                  strategy="ASYNC">
+            <state-transfer chunk-size="600"
+                            timeout="2400000"
+                            max-retries="30"
+                            wait-time="2000"
+                            mode="AUTO"/>
+          </backup>
+        </backups>
+      </distributed-cache>
 parameters:
-- name: OPERATOR_NAMESPACE
-  description: "The project where the operator will be installed."
-  required: false
-  value: "dg-test-nyc"
 - name: CLUSTER_NAMESPACE
-  description: "The project where the DG cluster will be installed."
+  description: "The project where the RHDG cluster will be installed."
   required: false
   value: "dg-test-nyc"
-- name: CLUSTER_NAMESPACE1
-  description: "The project where the DG cluster will be installed."
-  required: false
-  value: "dg-test-lon"
 - name: CLUSTER_NAME
   description: "The name of the RHDG cluster."
   required: false
-  value: "dg-cluster-nyc"
+  value: "dg-test-nyc"

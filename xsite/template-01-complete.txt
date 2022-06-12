@@ -15,7 +15,7 @@ objects:
     name: ${CLUSTER_NAMESPACE}
     annotations:
       openshift.io/description: "This project contains all the clusters deployed of DG"
-      openshift.io/display-name: "DG - NYC"
+      openshift.io/display-name: "DG NYC"
 - apiVersion: operators.coreos.com/v1alpha1
   kind: Subscription
   metadata:
@@ -23,7 +23,7 @@ objects:
     namespace: ${OPERATOR_NAMESPACE}
   spec:
     channel: 8.2.x
-    installPlanApproval: Manual 
+    installPlanApproval: Automatic 
     name: datagrid
     source: redhat-operators
     sourceNamespace: openshift-marketplace
@@ -36,6 +36,7 @@ objects:
   spec:
     targetNamespaces:
       - ${CLUSTER_NAMESPACE}
+      - ${CLUSTER_NAMESPACE1}
 - apiVersion: v1
   kind: Secret
   metadata:
