@@ -48,6 +48,9 @@ objects:
   metadata:
     name: eap-example
     namespace: ${CLUSTER_NAMESPACE}
+  spec:
+    applicationImage: 'jboss-eap-7/eap74-openjdk11-openshift-rhel8:7.4.4'
+    replicas: 1
 parameters:
 - name: OPERATOR_NAMESPACE
   description: "The project where the operator will be installed."
