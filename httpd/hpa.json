@@ -1,0 +1,81 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "autoscaling/v1",
+            "kind": "HorizontalPodAutoscaler",
+            "metadata": {
+                "annotations": {
+                    "autoscaling.alpha.kubernetes.io/conditions": "[{\"type\":\"AbleToScale\",\"status\":\"True\",\"lastTransitionTime\":\"2022-06-21T04:26:54Z\",\"reason\":\"SucceededGetScale\",\"message\":\"the HPA controller was able to get the target's current scale\"},{\"type\":\"ScalingActive\",\"status\":\"False\",\"lastTransitionTime\":\"2022-06-21T04:27:10Z\",\"reason\":\"FailedGetResourceMetric\",\"message\":\"the HPA was unable to compute the replica count: failed to get cpu utilization: missing request for cpu\"}]"
+                },
+                "creationTimestamp": "2022-06-21T04:26:39Z",
+                "managedFields": [
+                    {
+                        "apiVersion": "autoscaling/v1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:spec": {
+                                "f:maxReplicas": {},
+                                "f:minReplicas": {},
+                                "f:scaleTargetRef": {
+                                    "f:apiVersion": {},
+                                    "f:kind": {},
+                                    "f:name": {}
+                                },
+                                "f:targetCPUUtilizationPercentage": {}
+                            }
+                        },
+                        "manager": "oc",
+                        "operation": "Update",
+                        "time": "2022-06-21T04:26:39Z"
+                    },
+                    {
+                        "apiVersion": "autoscaling/v1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:autoscaling.alpha.kubernetes.io/conditions": {}
+                                }
+                            },
+                            "f:status": {
+                                "f:currentReplicas": {},
+                                "f:desiredReplicas": {},
+                                "f:lastScaleTime": {}
+                            }
+                        },
+                        "manager": "kube-controller-manager",
+                        "operation": "Update",
+                        "time": "2022-06-21T04:26:54Z"
+                    }
+                ],
+                "name": "httpd",
+                "namespace": "httpd-test",
+                "resourceVersion": "30446",
+                "selfLink": "/apis/autoscaling/v1/namespaces/httpd-test/horizontalpodautoscalers/httpd",
+                "uid": "d66a7024-3d36-401d-a6e4-8e1fe4dc57e3"
+            },
+            "spec": {
+                "maxReplicas": 16,
+                "minReplicas": 15,
+                "scaleTargetRef": {
+                    "apiVersion": "apps.openshift.io/v1",
+                    "kind": "DeploymentConfig",
+                    "name": "httpd"
+                },
+                "targetCPUUtilizationPercentage": 75
+            },
+            "status": {
+                "currentReplicas": 15,
+                "desiredReplicas": 15,
+                "lastScaleTime": "2022-06-21T04:26:54Z"
+            }
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": "",
+        "selfLink": ""
+    }
+}

@@ -1,0 +1,276 @@
+{
+    "apiVersion": "apps.openshift.io/v1",
+    "kind": "DeploymentConfig",
+    "metadata": {
+        "annotations": {
+            "openshift.io/generated-by": "OpenShiftNewApp"
+        },
+        "creationTimestamp": "2022-06-21T04:24:15Z",
+        "generation": 3,
+        "labels": {
+            "app": "httpd"
+        },
+        "managedFields": [
+            {
+                "apiVersion": "apps.openshift.io/v1",
+                "fieldsType": "FieldsV1",
+                "fieldsV1": {
+                    "f:metadata": {
+                        "f:annotations": {
+                            ".": {},
+                            "f:openshift.io/generated-by": {}
+                        },
+                        "f:labels": {
+                            ".": {},
+                            "f:app": {}
+                        }
+                    },
+                    "f:spec": {
+                        "f:replicas": {},
+                        "f:selector": {
+                            ".": {},
+                            "f:app": {},
+                            "f:deploymentconfig": {}
+                        },
+                        "f:strategy": {
+                            "f:activeDeadlineSeconds": {},
+                            "f:rollingParams": {
+                                ".": {},
+                                "f:intervalSeconds": {},
+                                "f:maxSurge": {},
+                                "f:maxUnavailable": {},
+                                "f:timeoutSeconds": {},
+                                "f:updatePeriodSeconds": {}
+                            },
+                            "f:type": {}
+                        },
+                        "f:template": {
+                            ".": {},
+                            "f:metadata": {
+                                ".": {},
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:openshift.io/generated-by": {}
+                                },
+                                "f:creationTimestamp": {},
+                                "f:labels": {
+                                    ".": {},
+                                    "f:app": {},
+                                    "f:deploymentconfig": {}
+                                }
+                            },
+                            "f:spec": {
+                                ".": {},
+                                "f:containers": {
+                                    ".": {},
+                                    "k:{\"name\":\"httpd\"}": {
+                                        ".": {},
+                                        "f:imagePullPolicy": {},
+                                        "f:name": {},
+                                        "f:ports": {
+                                            ".": {},
+                                            "k:{\"containerPort\":8080,\"protocol\":\"TCP\"}": {
+                                                ".": {},
+                                                "f:containerPort": {},
+                                                "f:protocol": {}
+                                            },
+                                            "k:{\"containerPort\":8443,\"protocol\":\"TCP\"}": {
+                                                ".": {},
+                                                "f:containerPort": {},
+                                                "f:protocol": {}
+                                            }
+                                        },
+                                        "f:resources": {},
+                                        "f:terminationMessagePath": {},
+                                        "f:terminationMessagePolicy": {}
+                                    }
+                                },
+                                "f:dnsPolicy": {},
+                                "f:restartPolicy": {},
+                                "f:schedulerName": {},
+                                "f:securityContext": {},
+                                "f:terminationGracePeriodSeconds": {}
+                            }
+                        }
+                    }
+                },
+                "manager": "oc",
+                "operation": "Update",
+                "time": "2022-06-21T04:24:15Z"
+            },
+            {
+                "apiVersion": "apps.openshift.io/v1",
+                "fieldsType": "FieldsV1",
+                "fieldsV1": {
+                    "f:spec": {
+                        "f:template": {
+                            "f:spec": {
+                                "f:containers": {
+                                    "k:{\"name\":\"httpd\"}": {
+                                        "f:image": {}
+                                    }
+                                }
+                            }
+                        },
+                        "f:triggers": {}
+                    },
+                    "f:status": {
+                        "f:availableReplicas": {},
+                        "f:conditions": {
+                            ".": {},
+                            "k:{\"type\":\"Available\"}": {
+                                ".": {},
+                                "f:lastTransitionTime": {},
+                                "f:lastUpdateTime": {},
+                                "f:message": {},
+                                "f:status": {},
+                                "f:type": {}
+                            },
+                            "k:{\"type\":\"Progressing\"}": {
+                                ".": {},
+                                "f:lastTransitionTime": {},
+                                "f:lastUpdateTime": {},
+                                "f:message": {},
+                                "f:reason": {},
+                                "f:status": {},
+                                "f:type": {}
+                            }
+                        },
+                        "f:details": {
+                            ".": {},
+                            "f:causes": {},
+                            "f:message": {}
+                        },
+                        "f:latestVersion": {},
+                        "f:observedGeneration": {},
+                        "f:readyReplicas": {},
+                        "f:replicas": {},
+                        "f:unavailableReplicas": {},
+                        "f:updatedReplicas": {}
+                    }
+                },
+                "manager": "openshift-controller-manager",
+                "operation": "Update",
+                "time": "2022-06-21T04:24:37Z"
+            }
+        ],
+        "name": "httpd",
+        "namespace": "httpd-test",
+        "resourceVersion": "30545",
+        "uid": "0a04c47b-c67a-4f14-9f6e-d0144c3e49b7"
+    },
+    "spec": {
+        "replicas": 15,
+        "revisionHistoryLimit": 10,
+        "selector": {
+            "app": "httpd",
+            "deploymentconfig": "httpd"
+        },
+        "strategy": {
+            "activeDeadlineSeconds": 21600,
+            "resources": {},
+            "rollingParams": {
+                "intervalSeconds": 1,
+                "maxSurge": "25%",
+                "maxUnavailable": "25%",
+                "timeoutSeconds": 600,
+                "updatePeriodSeconds": 1
+            },
+            "type": "Rolling"
+        },
+        "template": {
+            "metadata": {
+                "annotations": {
+                    "openshift.io/generated-by": "OpenShiftNewApp"
+                },
+                "creationTimestamp": null,
+                "labels": {
+                    "app": "httpd",
+                    "deploymentconfig": "httpd"
+                }
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "image": "image-registry.openshift-image-registry.svc:5000/openshift/httpd@sha256:e28b74bea726b322faee16fb53900fc1284d9d2ef41f8c3b75056c5318d62e75",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "httpd",
+                        "ports": [
+                            {
+                                "containerPort": 8080,
+                                "protocol": "TCP"
+                            },
+                            {
+                                "containerPort": 8443,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {},
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File"
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "terminationGracePeriodSeconds": 30
+            }
+        },
+        "test": false,
+        "triggers": [
+            {
+                "type": "ConfigChange"
+            },
+            {
+                "imageChangeParams": {
+                    "automatic": true,
+                    "containerNames": [
+                        "httpd"
+                    ],
+                    "from": {
+                        "kind": "ImageStreamTag",
+                        "name": "httpd:2.4-el7",
+                        "namespace": "openshift"
+                    },
+                    "lastTriggeredImage": "image-registry.openshift-image-registry.svc:5000/openshift/httpd@sha256:e28b74bea726b322faee16fb53900fc1284d9d2ef41f8c3b75056c5318d62e75"
+                },
+                "type": "ImageChange"
+            }
+        ]
+    },
+    "status": {
+        "availableReplicas": 15,
+        "conditions": [
+            {
+                "lastTransitionTime": "2022-06-21T04:24:37Z",
+                "lastUpdateTime": "2022-06-21T04:24:37Z",
+                "message": "replication controller \"httpd-1\" successfully rolled out",
+                "reason": "NewReplicationControllerAvailable",
+                "status": "True",
+                "type": "Progressing"
+            },
+            {
+                "lastTransitionTime": "2022-06-21T04:27:17Z",
+                "lastUpdateTime": "2022-06-21T04:27:17Z",
+                "message": "Deployment config has minimum availability.",
+                "status": "True",
+                "type": "Available"
+            }
+        ],
+        "details": {
+            "causes": [
+                {
+                    "type": "ConfigChange"
+                }
+            ],
+            "message": "config change"
+        },
+        "latestVersion": 1,
+        "observedGeneration": 3,
+        "readyReplicas": 15,
+        "replicas": 15,
+        "unavailableReplicas": 0,
+        "updatedReplicas": 15
+    }
+}

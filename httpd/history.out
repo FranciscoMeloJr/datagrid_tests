@@ -1,0 +1,73 @@
+### This example show the usage of 15 pods in httpd (image: openshift/httpd:2.4-el7 ) in OCP 4.7::
+
+$ oc new-project httpd-test 
+$ oc new-app  --image-stream=openshift/httpd:2.4-el7
+$ oc status
+$ oc autoscale dc/httpd --min=15 --max=16 --cpu-percent=75
+$ oc get pods
+$ oc autoscale dc/httpd --min=15 --max=16 --cpu-percent=75
+$ oc get pods
+$ oc get pods -w
+$ oc adm top pods -n httpd
+$ oc get pods 
+
+## in the pod do $ pmap -x 1 > pmap.out
+
+## copy from pod to local:
+$ oc cp httpd-1-b2zwc:/tmp/pmap.out .
+
+
+pods::
+~~~
+$ oc get pods
+NAME             READY     STATUS      RESTARTS   AGE
+httpd-1-b2zwc    1/1       Running     0          9m40s
+httpd-1-deploy   0/1       Completed   0          12m
+httpd-1-gk24w    1/1       Running     0          9m40s
+httpd-1-hfgmc    1/1       Running     0          9m40s
+httpd-1-hw2qv    1/1       Running     0          9m40s
+httpd-1-krhvm    1/1       Running     0          9m40s
+httpd-1-lzdfv    1/1       Running     0          9m40s
+httpd-1-mbxt2    1/1       Running     0          9m40s
+httpd-1-mnt5l    1/1       Running     0          9m40s
+httpd-1-nbdnf    1/1       Running     0          9m40s
+httpd-1-pc2pr    1/1       Running     0          9m40s
+httpd-1-sdbvn    1/1       Running     0          9m40s
+httpd-1-v28fk    1/1       Running     0          9m40s
+httpd-1-xcmgb    1/1       Running     0          12m
+httpd-1-xkbdm    1/1       Running     0          9m40s
+httpd-1-xrmjc    1/1       Running     0          9m40s
+~~~
+
+Memory usage via pod
+~~~
+$ oc adm top pods -n httpd-test
+NAME            CPU(cores)   MEMORY(bytes)   
+httpd-1-b2zwc   1m           18Mi            
+httpd-1-gk24w   0m           17Mi            
+httpd-1-hfgmc   0m           17Mi            
+httpd-1-hw2qv   2m           17Mi            
+httpd-1-krhvm   1m           17Mi            
+httpd-1-lzdfv   0m           17Mi            
+httpd-1-mbxt2   1m           17Mi            
+httpd-1-mnt5l   1m           17Mi            
+httpd-1-nbdnf   1m           17Mi            
+httpd-1-pc2pr   0m           17Mi            
+httpd-1-sdbvn   1m           17Mi            
+httpd-1-v28fk   1m           18Mi            
+httpd-1-xcmgb   0m           17Mi            
+httpd-1-xkbdm   1m           17Mi            
+httpd-1-xrmjc   0m           17Mi
+~~~
+
+~~~
+$ oc get hpa -a 
+Flag --show-all has been deprecated, will be removed in an upcoming release
+NAME      REFERENCE                TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+httpd     DeploymentConfig/httpd   <unknown>/75%   15        16        15         16m
+~~~
+
+Get the config:
+~~~
+$ oc exec -it httpd-1-b2zwc -- cat /etc/httpd/conf/httpd.conf >> httpd.conf.out
+~~~
