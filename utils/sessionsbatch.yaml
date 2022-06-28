@@ -1,0 +1,31 @@
+apiVersion: template.openshift.io/v1
+kind: Template
+metadata:
+  name: rhdg8-cluster
+  annotations:
+    description: Template to deploy a RHDG cluster on OCP.
+    tags: infinispan,datagrid,operator
+    iconClass: icon-datagrid
+    openshift.io/provider-display-name: Red Hat, Inc.
+    openshift.io/support-url: https://access.redhat.com
+objects:
+- apiVersion: infinispan.org/v2alpha1
+  kind: Batch
+  metadata:
+    name: "${CLUSTER_NAME}-custom-batch"
+  spec:
+    cluster: ${CLUSTER_NAME}
+    config: |
+      create cache --template=org.infinispan.DIST_SYNC sessions
+      put --cache=sessions hello world
+      put --cache=sessions hola mundo
+      put --cache=sessions bonjour le monde
+parameters:
+- name: CLUSTER_NAMESPACE
+  description: "The project where the DG cluster will be installed."
+  required: false
+  value: "dgtest"
+- name: CLUSTER_NAME
+  description: "The name of the RHDG cluster."
+  required: false
+  value: "infinispan-test"

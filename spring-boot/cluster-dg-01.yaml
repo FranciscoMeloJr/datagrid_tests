@@ -1,0 +1,92 @@
+apiVersion: template.openshift.io/v1
+kind: Template
+metadata:
+  name: rhdg8-cluster
+  annotations:
+    description: Template to deploy a RHDG cluster on OCP.
+    tags: infinispan,datagrid,operator
+    iconClass: icon-datagrid
+    openshift.io/provider-display-name: Red Hat, Inc.
+    openshift.io/support-url: https://access.redhat.com
+objects:
+- apiVersion: infinispan.org/v1
+  kind: Infinispan
+  metadata:
+    name: ${CLUSTER_NAME}
+    namespace: ${CLUSTER_NAMESPACE}
+    annotations:
+      infinispan.org/monitoring: 'false'
+    labels:
+      type: middleware
+      prometheus_domain: ${CLUSTER_NAME}
+  spec:
+    configMapName: "${CLUSTER_NAME}-custom-config" 
+    container:
+      cpu: '2'
+      extraJvmOpts: '-Xlog:gc*=info:file=/tmp/gc.log:time,level,tags,uptimemillis:filecount=10,filesize=1m
+              -Dcom.redhat.fips=false'
+      memory: 3Gi
+    logging:
+      categories: {}
+    expose:
+      type: Route
+    service:
+      type: DataGrid
+    replicas: 2
+- apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    name: "${CLUSTER_NAME}-custom-config"
+    namespace: ${CLUSTER_NAMESPACE}
+  data:
+    infinispan-config.yaml: >
+      infinispan:
+        cache-container:
+          name: "default"
+          statistics: "true"
+          transport:
+            stack: "tcp"
+          distributedCacheConfiguration:
+            name: "proto-dist-template"
+            mode: "SYNC"
+            statistics: "true"
+            encoding:
+              mediaType: "application/x-protostream"
+            expiration:
+              lifespan: "5000"
+              maxIdle: "1000"
+            memory:
+              maxCount: "1000000"
+              whenFull: "REMOVE"
+          distributedCacheConfiguration:
+            name: "jboss-dist-template"
+            mode: "ASYNC"
+            owners: "1"
+            statistics: "true"
+            encoding:
+              mediaType: "application/x-jboss-marshalling"
+            memory:
+              maxSize: "400MB"
+              whenFull: "REMOVE"
+            expiration:
+              lifespan: "300000"
+            stateTransfer:
+              enabled: false
+          distributedCache:
+            configuration: "jboss-dist-template"
+            name: "configMap-cache-01"
+          distributedCache:
+            configuration: "jboss-dist-template"
+            memory:
+              maxSize: "200MB"
+              whenFull: "REMOVE"
+            name: "configMap-cache-02"
+parameters:
+- name: CLUSTER_NAMESPACE
+  description: "The project where the DG cluster will be installed."
+  required: false
+  value: "dgtest"
+- name: CLUSTER_NAME
+  description: "The name of the RHDG cluster."
+  required: false
+  value: "infinispan-test"
