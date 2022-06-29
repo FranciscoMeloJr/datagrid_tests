@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "rhdg-custom-config"
+  namespace: rhdg8-mutua
+data:
+  infinispan-config.yaml: >
+    infinispan:
+      cache-container:
+        name: "default"
+        statistics: "true"
+        transport:
+          stack: "tcp"
+        distributedCacheConfiguration:
+          name: "proto-dist-template"
+          mode: "SYNC"
+          statistics: "true"
+          encoding:
+            mediaType: "application/x-protostream"
+          expiration:
+            lifespan: "5000"
+            maxIdle: "1000"
+          memory:
+            maxCount: "1000000"
+            whenFull: "REMOVE"
+        distributedCacheConfiguration:
+          name: "jboss-dist-template"
+          mode: "ASYNC"
+          owners: "1"
+          statistics: "true"
+          encoding:
+            mediaType: "application/x-jboss-marshalling"
+          memory:
+            maxSize: "400MB"
+            whenFull: "REMOVE"
+          expiration:
+            lifespan: "300000"
+          stateTransfer:
+            enabled: false
+        distributedCache:
+          configuration: "jboss-dist-template"
+          name: "configMap-cache-01"
+        distributedCache:
+          configuration: "jboss-dist-template"
+          memory:
+            maxSize: "200MB"
+            whenFull: "REMOVE"
+          name: "configMap-cache-02"

@@ -1,0 +1,32 @@
+This zip reproduces the behavior of a byteman consuming a stream and removing it, so it won't be shown.
+To run it:
+./run 
+
+##### String is shown:
+When the rule is not there, the string UTF data: Hello UTF! appears
+~~~
+$ ./run.sh 
+Rule 1 -----------
+Example Stream
+Rule 2 ---------ExampleStream.readGenericStream(ExampleStream.java:-1)
+ExampleStream.main(ExampleStream.java:12)
+
+java.util.stream.ReferencePipeline$Head@1188e820
+UTF data: Hello UTF!
+
+~~~
+
+##### Byteman rule consumes the stream:
+When the rule is there, the string UTF data: Hello UTF! does not appear
+(remove the rule from trivial.btm)
+~~~
+$ ./run.sh 
+Rule 1 -----------
+Example Stream
+Rule 2 ---------ExampleStream.readGenericStream(ExampleStream.java:-1)
+ExampleStream.main(ExampleStream.java:12)
+
+java.util.stream.ReferencePipeline$Head@45afc369
+Rule 3 ---------
+Mixology Hello UTF!
+~~~

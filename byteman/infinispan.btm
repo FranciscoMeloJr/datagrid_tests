@@ -1,0 +1,41 @@
+RULE ThrowableExternalizer Rule1
+CLASS org.infinispan.marshall.exts.ThrowableExternalizer
+AT EXCEPTION EXIT
+METHOD readGenericThrowable
+IF TRUE
+DO
+    System.out.println(formatStack("---------[BYTEMAN-NPE-1] NPE1 Class:\n" ));
+    System.out.println($1.readUTF());
+ENDRULE
+
+
+RULE ThrowableExternalizer Rule2
+CLASS org.infinispan.marshall.exts.ThrowableExternalizer
+AT ENTRY
+METHOD readGenericThrowable
+IF TRUE
+DO
+    System.out.println(formatStack("---------[BYTEMAN-NPE-1] NPE2 Class:\n" ));
+    System.out.println($1.readUTF());
+ENDRULE
+
+RULE ThrowableExternalizer Rule3
+CLASS org.infinispan.marshall.exts.ThrowableExternalizer
+AT EXCEPTION EXIT
+METHOD readGenericThrowable
+IF TRUE
+DO
+     System.out.println(formatStack("---------[BYTEMAN-NPE-1] NPE3 Class:\n" ));
+     System.out.println($impl);
+ENDRULE
+
+RULE ThrowableExternalizer Rule4
+CLASS org.infinispan.marshall.exts.ThrowableExternalizer
+AT EXCEPTION EXIT
+METHOD readGenericThrowable
+BIND impl2 = $1.readUTF()
+IF TRUE
+DO
+     System.out.println(formatStack("---------[BYTEMAN-NPE-1] NPE4 Class:\n" ));
+     System.out.println($impl2);
+ENDRULE

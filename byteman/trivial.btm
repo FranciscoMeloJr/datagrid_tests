@@ -1,0 +1,54 @@
+######################################
+# Example Rule Set for testing Stream 
+# RULE 3 MUST BE REMOVED FOR STREAM TESTING
+#
+
+RULE streamExample Rule1
+CLASS ExampleStream
+METHOD main
+AT ENTRY
+IF true
+DO traceln("Rule 1 -----------")
+ENDRULE
+
+RULE streamaccess Rule2
+CLASS ExampleStream
+METHOD readGenericStream
+AT ENTRY
+IF TRUE
+DO
+    System.out.println(formatStack("Rule 2 ---------" ));
+ENDRULE
+
+# RULE 3 
+RULE streamaccess Rule3
+CLASS ExampleStream
+AT INVOKE unmarshallString
+METHOD readGenericThrowable
+IF TRUE
+DO
+    System.out.println("Rule 3 ---------" );
+    System.out.println("xxxNPExxx: "+ $impl);
+ENDRULE
+
+# RULE 3 MUST BE REMOVED FOR STREAM TESTING
+#RULE streamaccess Rule4
+#CLASS ExampleStream
+#AT ENTRY
+#METHOD readGenericThrowable
+#IF TRUE
+#DO
+#    System.out.println("Rule 4 ---------" );
+#    System.out.println("Mixology " + $1.readUTF());
+#ENDRULE
+
+# RULE 4 WON'T WORK -- streamaccess Rule4 : org.jboss.byteman.rule.exception.ExecuteException: MethodExpression.interpret : exception invoking method readUTF file trivial.btm line 41
+# RULE streamaccess Rule5
+# CLASS ExampleStream
+# AFTER INVOKE readUTF
+# METHOD readGenericThrowable
+# IF TRUE
+# DO
+#    System.out.println("Rule 5 ---------" );
+#    System.out.println("Won't Flub: " + $1.readUTF());
+#ENDRULE

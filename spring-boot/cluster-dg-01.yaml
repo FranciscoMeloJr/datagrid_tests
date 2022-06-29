@@ -15,7 +15,7 @@ objects:
     name: ${CLUSTER_NAME}
     namespace: ${CLUSTER_NAMESPACE}
     annotations:
-      infinispan.org/monitoring: 'false'
+      infinispan.org/monitoring: 'true'
     labels:
       type: middleware
       prometheus_domain: ${CLUSTER_NAME}
