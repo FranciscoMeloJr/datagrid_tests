@@ -12,7 +12,7 @@ objects:
 - apiVersion: v1
   kind: ConfigMap
   metadata:
-    name: "${CLUSTER_NAME}-custom-config-1"
+    name: "${CLUSTER_NAME}-custom-config-2"
     namespace: ${CLUSTER_NAMESPACE}
   data:
     infinispan-config.xml: >
@@ -32,14 +32,6 @@ objects:
                     when-full="REMOVE"/>
           </distributed-cache>
           <distributed-cache name="mycachetwo"
-                             mode="SYNC"
-                             statistics="true">
-            <encoding media-type="application/x-protostream"/>
-            <expiration lifespan="300000"/>
-            <memory max-size="400MB"
-                    when-full="REMOVE"/>
-          </distributed-cache>
-          <distributed-cache name="mycachethree"
                              mode="SYNC"
                              statistics="true">
             <encoding media-type="application/x-protostream"/>

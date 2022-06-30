@@ -12,7 +12,7 @@ objects:
 - apiVersion: v1
   kind: ConfigMap
   metadata:
-    name: "${CLUSTER_NAME}-custom-config-1"
+    name: "${CLUSTER_NAME}-custom-config"
     namespace: ${CLUSTER_NAMESPACE}
   data:
     infinispan-config.xml: >

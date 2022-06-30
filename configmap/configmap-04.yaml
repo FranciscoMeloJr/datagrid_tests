@@ -1,0 +1,54 @@
+apiVersion: template.openshift.io/v1
+kind: Template
+metadata:
+  name: rhdg8-cluster
+  annotations:
+    description: Template to deploy a RHDG cluster on OCP.
+    tags: infinispan,datagrid,operator
+    iconClass: icon-datagrid
+    openshift.io/provider-display-name: Red Hat, Inc.
+    openshift.io/support-url: https://access.redhat.com
+objects:
+- apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    name: "${CLUSTER_NAME}-custom-config"
+    namespace: ${CLUSTER_NAMESPACE}
+  data:
+    infinispan-config.xml: >
+         <infinispan
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="urn:infinispan:config:13.0 https://infinispan.org/schemas/infinispan-config-13.0.xsd
+                                urn:infinispan:server:14.0 https://infinispan.org/schemas/infinispan-server-13.0.xsd"
+          xmlns="urn:infinispan:config:13.0"
+          xmlns:server="urn:infinispan:server:13.0">
+
+       <cache-container name="default" statistics="true">
+          <transport cluster="${infinispan.cluster.name:cluster}" stack="${infinispan.cluster.stack:tcp}" node-name="${infinispan.node.name:}"/>
+          <security>
+             <authorization/>
+          </security>
+       </cache-container>
+
+       <server  xmlns="urn:infinispan:server:13.0">
+          <endpoints>
+             <endpoint socket-binding="default" security-realm="default">
+                   <rest-connector/>
+                   <memcached-connector socket-binding="memcached"/>
+                </endpoint>
+          </endpoints>
+          </server>
+    </infinispan>
+parameters:
+- name: OPERATOR_NAMESPACE
+  description: "The project where the operator will be installed."
+  required: false
+  value: "dgtest"
+- name: CLUSTER_NAMESPACE
+  description: "The project where the DG cluster will be installed."
+  required: false
+  value: "dgtest"
+- name: CLUSTER_NAME
+  description: "The name of the RHDG cluster."
+  required: false
+  value: "infinispan-test"

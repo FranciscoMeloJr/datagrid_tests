@@ -5,13 +5,13 @@ oc process -f template-01-complete.yaml | oc apply -f -
 oc project dgtest
 ./script_approve_ip.sh
 ### confirm installation is good:
-oc get csv | awk 'NR==2 {print $6}'
+oc get csv | awk 'NR==2 {print $6}' ### Succedded
 
 ## Create infinispan:
 oc process -f cluster-dg-01.yaml | oc apply -f -
 
-### Confirm creation and status:
-oc get infinispan $CLUSTER_NAME -o jsonpath="{.status.conditions}"
+### Confirm creation and status: oc get infinispan $CLUSTER_NAME -o jsonpath="{.status.conditions}"
+oc get infinispan infinispan-test  -o jsonpath="{.status.conditions}"
 
 ## Get secret:
 oc get secret infinispan-test-generated-secret -o jsonpath="{.data.identities\.yaml}" | base64 --decode
@@ -41,10 +41,16 @@ export JAVA_HOME=/home/fdemeloj/Downloads/cases/java-11-openjdk-11.0.15.0.9-3.po
 echo "Showing environment variables"
 ./fill_enviroment_variables.sh
 
+### Fix the variables
+echo "Fix the variables"
+
 ### Create a new project:
 oc new-project springboot-test
 
-### Crate secret from truststore.jks file:
+### Create secret --> fruit
+$JAVA_HOME/bin/keytool -importcert -keystore truststore.jks -alias server -file tls.crt
+
+### Export secret from truststore.jks file:
 oc create secret generic truststore-secret --from-file=truststore.jks
 
 ### Deploy:
@@ -61,3 +67,8 @@ oc set volume dc/hotrodspringboot --add --name=truststore-secret -m /mnt/secrets
 routename=$(oc get routes --no-headers | awk '{print $2}')
 
 curl -X GET http://$routename/redhat/update-cache/sessions/cacheKey1/cacheValue1
+
+# curl -X GET http://hotrodspringboot-springboot-test.apps.ci-ln-skkk3jk-72292.origin-ci-int-gce.dev.rhcloud.com/redhat/update-cache/sessions/cacheKey1/cacheValue1
+
+### Success:
+#SUCCESS cacheValue1
