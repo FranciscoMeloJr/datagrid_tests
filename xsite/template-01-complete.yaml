@@ -22,12 +22,12 @@ objects:
     name: datagrid-operator
     namespace: ${OPERATOR_NAMESPACE}
   spec:
-    channel: 8.2.x
+    channel: 8.3.x
     installPlanApproval: Manual 
     name: datagrid
     source: redhat-operators
     sourceNamespace: openshift-marketplace
-    startingCSV: datagrid-operator.v8.2.8
+    startingCSV: datagrid-operator.v8.3.6
 - apiVersion: operators.coreos.com/v1
   kind: OperatorGroup
   metadata:

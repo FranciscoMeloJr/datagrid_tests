@@ -58,7 +58,7 @@ objects:
         </memory>
         <expiration lifespan="600000"/> <!-- 10 min -->
           <backups>
-          <backup site="SiteA"
+          <backup site="SiteB"
                   strategy="ASYNC">
             <state-transfer chunk-size="600"
                             timeout="2400000"
@@ -72,8 +72,8 @@ parameters:
 - name: CLUSTER_NAMESPACE
   description: "The project where the RHDG cluster will be installed."
   required: false
-  value: "dg-test-nyc"
+  value: "dg-test-lon"
 - name: CLUSTER_NAME
   description: "The name of the RHDG cluster."
   required: false
-  value: "dg-cluster-nyc"
+  value: "dg-cluster-lon"
