@@ -1,0 +1,31 @@
+apiVersion: template.openshift.io/v1
+kind: Template
+metadata:
+  name: dg-xsite
+  annotations:
+    description: Template to deploy a DG operator on OCP 4 - obviously based on Alvaro's work
+    tags: datagrid, xsite, datagrid-operator
+    iconClass: icon-datagrid
+    openshift.io/provider-display-name: Red Hat, Inc.
+    openshift.io/support-url: https://access.redhat.com
+objects:
+- apiVersion: project.openshift.io/v1
+  kind: Project
+  metadata:
+    name: ${CLUSTER_NAMESPACE}
+    annotations:
+      openshift.io/description: "This project contains RHSSO"
+      openshift.io/display-name: "RHSSO"
+parameters:
+- name: OPERATOR_NAMESPACE
+  description: "The project where the operator will be installed."
+  required: false
+  value: "rhsso-test"
+- name: CLUSTER_NAMESPACE
+  description: "The project where the DG cluster will be installed."
+  required: false
+  value: "rhsso-test"
+- name: CLUSTER_NAME
+  description: "The name of the RHDG cluster."
+  required: false
+  value: "rhsso-cluster"

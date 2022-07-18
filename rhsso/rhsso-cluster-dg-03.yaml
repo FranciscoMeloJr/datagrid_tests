@@ -1,0 +1,38 @@
+apiVersion: template.openshift.io/v1
+kind: Template
+metadata:
+  name: rhdg8-cluster
+  annotations:
+    description: Template to deploy a RHDG cluster on OCP.
+    tags: infinispan,datagrid,operator
+    iconClass: icon-datagrid
+    openshift.io/provider-display-name: Red Hat, Inc.
+    openshift.io/support-url: https://access.redhat.com
+objects:
+- apiVersion: keycloak.org/v1alpha1
+  kind: Keycloak
+  metadata:
+    name: xfl-entreprise-rhsso-dev1
+  spec:
+    externalAccess:
+      enabled: false
+      tlsTermination: reencrypt
+    externalDatabase:
+      enabled: true
+    instances: 1
+    keycloakDeploymentSpec:
+      experimental:
+        serviceAccountName: serviceaccount-hq
+parameters:
+- name: OPERATOR_NAMESPACE
+  description: "The project where the operator will be installed."
+  required: false
+  value: "rhsso-test"
+- name: CLUSTER_NAMESPACE
+  description: "The project where the DG cluster will be installed."
+  required: false
+  value: "rhsso-test"
+- name: CLUSTER_NAME
+  description: "The name of the RHDG cluster."
+  required: false
+  value: "rhsso-cluster"

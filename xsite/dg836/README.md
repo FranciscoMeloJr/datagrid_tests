@@ -1,4 +1,4 @@
-DG Operator 8.3.5 Xsite test --> worked
+DG Operator 8.3.6 Xsite test --> worked
 ===========================
 
 1. oc process -f template-01-complete.yaml | oc apply -f -
@@ -31,7 +31,7 @@ $ oc edit ip install-z5qvk --> approved true
 installplan.operators.coreos.com/install-z5qvk edited
 =====
 $ oc project dg-test-nyc
-Now using project "dg-test-nyc" on server "https://:6443".
+Now using project "dg-test-nyc" on server "https://api.ci-ln-hhilk82-72292.rhcloud.com:6443".
 $ oc get ip
 NAME            CSV                        APPROVAL   APPROVED
 install-5p822   datagrid-operator.v8.3.5   Manual     false

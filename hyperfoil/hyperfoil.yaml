@@ -1,0 +1,11 @@
+apiVersion: hyperfoil.io/v1alpha2
+kind: Hyperfoil
+metadata:
+  name: example-hyperfoil
+  namespace: hyperfoil
+spec:
+  agentDeployTimeout: 60000
+  log: myConfigMap/log4j2-superverbose.xml
+  route:
+    host: hyperfoil.apps.mycloud.example.com
+  version: latest

@@ -1,0 +1,48 @@
+apiVersion: template.openshift.io/v1
+kind: Template
+metadata:
+  name: rhdg8-cluster
+  annotations:
+    description: Template to deploy a RHDG cluster on OCP.
+    tags: infinispan,datagrid,operator
+    iconClass: icon-datagrid
+    openshift.io/provider-display-name: Red Hat, Inc.
+    openshift.io/support-url: https://access.redhat.com
+objects:
+- apiVersion: infinispan.org/v1
+  kind: Infinispan
+  metadata:
+    name: ${CLUSTER_NAME}
+    namespace: ${CLUSTER_NAMESPACE}
+    annotations:
+      infinispan.org/monitoring: 'false'
+    labels:
+      type: middleware
+      prometheus_domain: ${CLUSTER_NAME}
+  spec:
+    configMapName: "${CLUSTER_NAME}-custom-config" 
+    container:
+      cpu: '2'
+      extraJvmOpts: '-Xlog:gc*=info:file=/tmp/gc.log:time,level,tags,uptimemillis:filecount=10,filesize=1m
+              -Dcom.redhat.fips=false'
+      memory: 3Gi
+    logging:
+      categories: {}
+    replicas: 1
+    security:
+      endpointAuthentication: false
+      endpointEncryption:
+        type: None
+    expose:
+      type: LoadBalancer
+    service:
+      type: Cache
+parameters:
+- name: CLUSTER_NAMESPACE
+  description: "The project where the RHDG cluster will be installed."
+  required: false
+  value: "dg-test-typecache"
+- name: CLUSTER_NAME
+  description: "The name of the RHDG cluster."
+  required: false
+  value: "dg-test-typecache"

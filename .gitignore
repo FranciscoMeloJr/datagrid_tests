@@ -6,3 +6,4 @@
 *.keystore
 *.jks
 truststore.jks
+*hs_error*

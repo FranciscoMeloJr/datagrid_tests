@@ -8,9 +8,9 @@ oc login -u $1 -p $2 https://api.$3:6443
 oc status
 
 ### Executes the template:
-echo "Enter template: "
-read scriptname
-echo $scriptname
-if [ -z "${VAR}" ];
-	exit 0
-oc process -f $scriptname | oc apply -f - 
+#echo "Enter template: "
+#read scriptname
+#echo $scriptname
+#if [ -z "${VAR}" ];
+#	exit 0
+#oc process -f $scriptname | oc apply -f - 
