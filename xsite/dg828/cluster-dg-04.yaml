@@ -24,7 +24,7 @@ objects:
     container:
       cpu: '2'
       extraJvmOpts: '-Xlog:gc*=info:file=/tmp/gc.log:time,level,tags,uptimemillis:filecount=10,filesize=1m
-              -Dcom.redhat.fips=false -Dio.netty.allocator.type=unpooled'
+              -Dcom.redhat.fips=false'
       memory: 3Gi
     logging:
       categories: {}
@@ -39,14 +39,14 @@ objects:
       type: DataGrid
       sites:
         local:
-          name: SiteA
+          name: SiteB
           expose:
             type: ClusterIP
           maxRelayNodes: 1
         locations:
-          - name: SiteB
-            clusterName: dg-cluster-nyc
-            namespace: dg-test-nyc
+          - name: SiteA
+            clusterName: dg-cluster-lon
+            namespace: dg-test-lon
 - apiVersion: v1
   kind: ConfigMap
   metadata:
@@ -99,8 +99,8 @@ parameters:
 - name: CLUSTER_NAMESPACE
   description: "The project where the RHDG cluster will be installed."
   required: false
-  value: "dg-test-lon"
+  value: "dg-test-nyc"
 - name: CLUSTER_NAME
   description: "The name of the RHDG cluster."
   required: false
-  value: "dg-cluster-lon"
+  value: "dg-cluster-nyc"
