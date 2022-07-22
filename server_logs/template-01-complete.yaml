@@ -15,7 +15,7 @@ objects:
     name: ${CLUSTER_NAMESPACE}
     annotations:
       openshift.io/description: "This project contains all the clusters deployed of DG"
-      openshift.io/display-name: "DG - NYC"
+      openshift.io/display-name: "logging test"
 - apiVersion: operators.coreos.com/v1alpha1
   kind: Subscription
   metadata:
@@ -63,16 +63,12 @@ parameters:
 - name: OPERATOR_NAMESPACE
   description: "The project where the operator will be installed."
   required: false
-  value: "dg-test-nyc"
+  value: "dg-test-log"
 - name: CLUSTER_NAMESPACE
   description: "The project where the DG cluster will be installed."
   required: false
-  value: "dg-test-nyc"
-- name: CLUSTER_NAMESPACE1
-  description: "The project where the DG cluster will be installed."
-  required: false
-  value: "dg-test-lon"
+  value: "dg-test-log"
 - name: CLUSTER_NAME
   description: "The name of the RHDG cluster."
   required: false
-  value: "dg-cluster-nyc"
+  value: "dg-cluster-log"
