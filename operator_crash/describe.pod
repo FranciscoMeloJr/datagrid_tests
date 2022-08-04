@@ -1,0 +1,136 @@
+Name:         dg-cluster-nyc-0
+Namespace:    dg-test-nyc
+Priority:     0
+Node:         ci-ln-tfsf572-72292-dfmpx-worker-b-whrjq/10.0.128.4
+Start Time:   Thu, 21 Jul 2022 16:14:44 -0400
+Labels:       app=infinispan-pod
+              app.kubernetes.io/created-by=dg-cluster-nyc
+              clusterName=dg-cluster-nyc
+              com.redhat.component-name=Data_Grid
+              com.redhat.component-type=application
+              com.redhat.component-version=8.3.1
+              com.redhat.product-name=Red_Hat_Runtimes
+              com.redhat.product-version=2022-Q2
+              controller-revision-hash=dg-cluster-nyc-7bc64f98bc
+              infinispan_cr=dg-cluster-nyc
+              statefulset.kubernetes.io/pod-name=dg-cluster-nyc-0
+Annotations:  k8s.v1.cni.cncf.io/network-status:
+                [{
+                    "name": "openshift-sdn",
+                    "interface": "eth0",
+                    "ips": [
+                        "10.128.2.13"
+                    ],
+                    "default": true,
+                    "dns": {}
+                }]
+              k8s.v1.cni.cncf.io/networks-status:
+                [{
+                    "name": "openshift-sdn",
+                    "interface": "eth0",
+                    "ips": [
+                        "10.128.2.13"
+                    ],
+                    "default": true,
+                    "dns": {}
+                }]
+              openshift.io/scc: restricted
+              updateDate: 2022-07-21 20:14:41.952731416 +0000 UTC m=+28.113238912
+Status:       Running
+IP:           10.128.2.13
+IPs:
+  IP:           10.128.2.13
+Controlled By:  StatefulSet/dg-cluster-nyc
+Containers:
+  infinispan:
+    Container ID:  cri-o://be129bd714ea5041219df2886cdf5569222facb467ed200bc257c52678f75ef4
+    Image:         registry.redhat.io/datagrid/datagrid-8-rhel8@sha256:ec0185d369c661f0da8a477e7bd60437f32a2aabba21a7a89f8aeefba19cc895
+    Image ID:      registry.redhat.io/datagrid/datagrid-8-rhel8@sha256:6d91e2a9657bf11090650599550a2e86e79e8ff943ff978e91cf7905031bb277
+    Ports:         11223/TCP, 8888/TCP, 11222/TCP, 7900/TCP
+    Host Ports:    0/TCP, 0/TCP, 0/TCP, 0/TCP
+    Args:
+      -Dinfinispan.zero-capacity-node=false
+      -l
+      /opt/infinispan/server/conf/operator/log4j.xml
+      -c
+      user/infinispan-config.yaml
+      -c
+      operator/infinispan.xml
+    State:          Running
+      Started:      Thu, 21 Jul 2022 16:14:57 -0400
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     2
+      memory:  3Gi
+    Requests:
+      cpu:      2
+      memory:   3Gi
+    Liveness:   http-get http://:11223/rest/v2/cache-managers/default/health/status delay=0s timeout=80s period=10s #success=1 #failure=5
+    Readiness:  http-get http://:11223/rest/v2/cache-managers/default/health/status delay=0s timeout=80s period=10s #success=1 #failure=5
+    Startup:    http-get http://:11223/rest/v2/cache-managers/default/health/status delay=1s timeout=80s period=1s #success=1 #failure=600
+    Environment:
+      MANAGED_ENV:            TRUE
+      JAVA_OPTIONS:           -Xlog:gc*=info:file=/tmp/gc.log:time,level,tags,uptimemillis:filecount=10,filesize=1m -Dcom.redhat.fips=false
+      EXTRA_JAVA_OPTIONS:     -Xlog:gc*=info:file=/tmp/gc.log:time,level,tags,uptimemillis:filecount=10,filesize=1m -Dcom.redhat.fips=false
+      DEFAULT_IMAGE:          registry.redhat.io/datagrid/datagrid-8-rhel8@sha256:ec0185d369c661f0da8a477e7bd60437f32a2aabba21a7a89f8aeefba19cc895
+      CONFIG_HASH:            d3266e6d627f86e902bcda660403c94047f27e53
+      ADMIN_IDENTITIES_HASH:  24f00805d03891a1685ee8ccef5749c6b2f370a0
+      IDENTITIES_BATCH:       /etc/security/conf/operator-security/identities.cli
+    Mounts:
+      /etc/security/admin from admin-identities-volume (rw)
+      /etc/security/conf/operator-security from infinispan-security-volume (rw)
+      /opt/infinispan/server/conf/operator from config-volume (rw)
+      /opt/infinispan/server/conf/user from user-conf-volume (rw)
+      /opt/infinispan/server/data from data-volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-dmjhz (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  data-volume:
+    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+    ClaimName:  data-volume-dg-cluster-nyc-0
+    ReadOnly:   false
+  config-volume:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      dg-cluster-nyc-configuration
+    Optional:  false
+  admin-identities-volume:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  dg-cluster-nyc-generated-operator-secret
+    Optional:    false
+  infinispan-security-volume:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  dg-cluster-nyc-infinispan-security
+    Optional:    false
+  user-conf-volume:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      dg-cluster-nyc-custom-config
+    Optional:  false
+  kube-api-access-dmjhz:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+    ConfigMapName:           openshift-service-ca.crt
+    ConfigMapOptional:       <nil>
+QoS Class:                   Guaranteed
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/memory-pressure:NoSchedule op=Exists
+                             node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason                  Age                From                     Message
+  ----     ------                  ----               ----                     -------
+  Normal   Scheduled               8m21s              default-scheduler        Successfully assigned dg-test-nyc/dg-cluster-nyc-0 to ci-ln-tfsf572-72292-dfmpx-worker-b-whrjq
+  Normal   SuccessfulAttachVolume  8m17s              attachdetach-controller  AttachVolume.Attach succeeded for volume "pvc-81023208-6e82-4321-9fdd-a544b70d789e"
+  Normal   AddedInterface          8m8s               multus                   Add eth0 [10.128.2.13/23] from openshift-sdn
+  Normal   Pulled                  8m8s               kubelet                  Container image "registry.redhat.io/datagrid/datagrid-8-rhel8@sha256:ec0185d369c661f0da8a477e7bd60437f32a2aabba21a7a89f8aeefba19cc895" already present on machine
+  Normal   Created                 8m8s               kubelet                  Created container infinispan
+  Normal   Started                 8m8s               kubelet                  Started container infinispan
+  Warning  Unhealthy               8m (x7 over 8m6s)  kubelet                  Startup probe failed: Get "http://10.128.2.13:11223/rest/v2/cache-managers/default/health/status": dial tcp 10.128.2.13:11223: connect: connection refused

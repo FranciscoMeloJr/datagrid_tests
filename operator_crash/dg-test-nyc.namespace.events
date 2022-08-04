@@ -1,0 +1,55 @@
+LAST SEEN   TYPE      REASON                   OBJECT                                                         MESSAGE
+11m         Normal    LeaderElection           configmap/632512e4.infinispan.org                              infinispan-operator-controller-manager-6b89b6d49d-8dxfq_7e8d8487-396f-4904-8e68-2697832fd641 became leader
+11m         Normal    LeaderElection           lease/632512e4.infinispan.org                                  infinispan-operator-controller-manager-6b89b6d49d-8dxfq_7e8d8487-396f-4904-8e68-2697832fd641 became leader
+10m         Normal    WaitForFirstConsumer     persistentvolumeclaim/data-volume-dg-cluster-nyc-0             waiting for first consumer to be created before binding
+10m         Normal    ProvisioningSucceeded    persistentvolumeclaim/data-volume-dg-cluster-nyc-0             Successfully provisioned volume pvc-81023208-6e82-4321-9fdd-a544b70d789e using kubernetes.io/gce-pd
+11m         Normal    RequirementsUnknown      clusterserviceversion/datagrid-operator.v8.3.6                 requirements not yet checked
+11m         Normal    RequirementsNotMet       clusterserviceversion/datagrid-operator.v8.3.6                 one or more requirements couldn't be found
+11m         Normal    AllRequirementsMet       clusterserviceversion/datagrid-operator.v8.3.6                 all requirements found, attempting install
+11m         Normal    InstallSucceeded         clusterserviceversion/datagrid-operator.v8.3.6                 waiting for install components to report healthy
+11m         Normal    InstallWaiting           clusterserviceversion/datagrid-operator.v8.3.6                 installing: waiting for deployment infinispan-operator-controller-manager to become ready: deployment "infinispan-operator-controller-manager" not available: Deployment does not have minimum availability.
+11m         Normal    InstallSucceeded         clusterserviceversion/datagrid-operator.v8.3.6                 install strategy completed with no errors
+10m         Normal    Scheduled                pod/dg-cluster-nyc-0                                           Successfully assigned dg-test-nyc/dg-cluster-nyc-0 to ci-ln-tfsf572-72292-dfmpx-worker-b-whrjq
+10m         Normal    SuccessfulAttachVolume   pod/dg-cluster-nyc-0                                           AttachVolume.Attach succeeded for volume "pvc-81023208-6e82-4321-9fdd-a544b70d789e"
+10m         Normal    AddedInterface           pod/dg-cluster-nyc-0                                           Add eth0 [10.128.2.13/23] from openshift-sdn
+10m         Normal    Pulled                   pod/dg-cluster-nyc-0                                           Container image "registry.redhat.io/datagrid/datagrid-8-rhel8@sha256:ec0185d369c661f0da8a477e7bd60437f32a2aabba21a7a89f8aeefba19cc895" already present on machine
+10m         Normal    Created                  pod/dg-cluster-nyc-0                                           Created container infinispan
+10m         Normal    Started                  pod/dg-cluster-nyc-0                                           Started container infinispan
+10m         Warning   Unhealthy                pod/dg-cluster-nyc-0                                           Startup probe failed: Get "http://10.128.2.13:11223/rest/v2/cache-managers/default/health/status": dial tcp 10.128.2.13:11223: connect: connection refused
+10m         Normal    Scheduled                pod/dg-cluster-nyc-config-listener-7d699c4979-wcgg6            Successfully assigned dg-test-nyc/dg-cluster-nyc-config-listener-7d699c4979-wcgg6 to ci-ln-tfsf572-72292-dfmpx-worker-a-bsn6h
+10m         Normal    AddedInterface           pod/dg-cluster-nyc-config-listener-7d699c4979-wcgg6            Add eth0 [10.129.2.17/23] from openshift-sdn
+10m         Normal    Pulled                   pod/dg-cluster-nyc-config-listener-7d699c4979-wcgg6            Container image "registry.redhat.io/datagrid/datagrid-8-rhel8-operator@sha256:8040361398886e639ee4e83d1c637e7d4cdfbe128dda0ebc276d7fc65b0ef4d5" already present on machine
+10m         Normal    Created                  pod/dg-cluster-nyc-config-listener-7d699c4979-wcgg6            Created container infinispan-listener
+10m         Normal    Started                  pod/dg-cluster-nyc-config-listener-7d699c4979-wcgg6            Started container infinispan-listener
+10m         Normal    SuccessfulCreate         replicaset/dg-cluster-nyc-config-listener-7d699c4979           Created pod: dg-cluster-nyc-config-listener-7d699c4979-wcgg6
+10m         Normal    ScalingReplicaSet        deployment/dg-cluster-nyc-config-listener                      Scaled up replica set dg-cluster-nyc-config-listener-7d699c4979 to 1
+10m         Normal    Scheduled                pod/dg-cluster-nyc-custom-batch-pt4dp                          Successfully assigned dg-test-nyc/dg-cluster-nyc-custom-batch-pt4dp to ci-ln-tfsf572-72292-dfmpx-worker-a-bsn6h
+10m         Normal    AddedInterface           pod/dg-cluster-nyc-custom-batch-pt4dp                          Add eth0 [10.129.2.16/23] from openshift-sdn
+10m         Normal    Pulled                   pod/dg-cluster-nyc-custom-batch-pt4dp                          Container image "registry.redhat.io/datagrid/datagrid-8-rhel8@sha256:ec0185d369c661f0da8a477e7bd60437f32a2aabba21a7a89f8aeefba19cc895" already present on machine
+10m         Normal    Created                  pod/dg-cluster-nyc-custom-batch-pt4dp                          Created container dg-cluster-nyc-custom-batch
+10m         Normal    Started                  pod/dg-cluster-nyc-custom-batch-pt4dp                          Started container dg-cluster-nyc-custom-batch
+10m         Normal    SuccessfulCreate         job/dg-cluster-nyc-custom-batch                                Created pod: dg-cluster-nyc-custom-batch-pt4dp
+10m         Normal    Completed                job/dg-cluster-nyc-custom-batch                                Job completed
+10m         Normal    EnsuringLoadBalancer     service/dg-cluster-nyc-external                                Ensuring load balancer
+10m         Normal    EnsuredLoadBalancer      service/dg-cluster-nyc-external                                Ensured load balancer
+11m         Normal    Scheduled                pod/dg-cluster-nyc-router-67b9f46fdc-h6jnt                     Successfully assigned dg-test-nyc/dg-cluster-nyc-router-67b9f46fdc-h6jnt to ci-ln-tfsf572-72292-dfmpx-worker-a-bsn6h
+11m         Normal    AddedInterface           pod/dg-cluster-nyc-router-67b9f46fdc-h6jnt                     Add eth0 [10.129.2.13/23] from openshift-sdn
+11m         Normal    Pulling                  pod/dg-cluster-nyc-router-67b9f46fdc-h6jnt                     Pulling image "registry.redhat.io/datagrid/datagrid-8-rhel8@sha256:ec0185d369c661f0da8a477e7bd60437f32a2aabba21a7a89f8aeefba19cc895"
+10m         Normal    Pulled                   pod/dg-cluster-nyc-router-67b9f46fdc-h6jnt                     Successfully pulled image "registry.redhat.io/datagrid/datagrid-8-rhel8@sha256:ec0185d369c661f0da8a477e7bd60437f32a2aabba21a7a89f8aeefba19cc895" in 7.335736543s
+10m         Normal    Created                  pod/dg-cluster-nyc-router-67b9f46fdc-h6jnt                     Created container gossiprouter
+10m         Normal    Started                  pod/dg-cluster-nyc-router-67b9f46fdc-h6jnt                     Started container gossiprouter
+11m         Normal    SuccessfulCreate         replicaset/dg-cluster-nyc-router-67b9f46fdc                    Created pod: dg-cluster-nyc-router-67b9f46fdc-h6jnt
+11m         Normal    ScalingReplicaSet        deployment/dg-cluster-nyc-router                               Scaled up replica set dg-cluster-nyc-router-67b9f46fdc to 1
+11m         Warning   ResourceNotReady         infinispan/dg-cluster-nyc                                      ConfigMap resource 'dg-cluster-nyc-configuration' not ready
+11m         Warning   ResourceNotReady         infinispan/dg-cluster-nyc                                      Service resource 'dg-cluster-nyc-site' not ready
+10m         Warning   LowPersistenceStorage    infinispan/dg-cluster-nyc                                      Persistent volume size is less than memory size. Graceful shutdown may not work.
+10m         Normal    SuccessfulCreate         statefulset/dg-cluster-nyc                                     create Claim data-volume-dg-cluster-nyc-0 Pod dg-cluster-nyc-0 in StatefulSet dg-cluster-nyc success
+10m         Normal    SuccessfulCreate         statefulset/dg-cluster-nyc                                     create Pod dg-cluster-nyc-0 in StatefulSet dg-cluster-nyc successful
+11m         Normal    Scheduled                pod/infinispan-operator-controller-manager-6b89b6d49d-8dxfq    Successfully assigned dg-test-nyc/infinispan-operator-controller-manager-6b89b6d49d-8dxfq to ci-ln-tfsf572-72292-dfmpx-worker-a-bsn6h
+11m         Normal    AddedInterface           pod/infinispan-operator-controller-manager-6b89b6d49d-8dxfq    Add eth0 [10.129.2.12/23] from openshift-sdn
+11m         Normal    Pulling                  pod/infinispan-operator-controller-manager-6b89b6d49d-8dxfq    Pulling image "registry.redhat.io/datagrid/datagrid-8-rhel8-operator@sha256:8040361398886e639ee4e83d1c637e7d4cdfbe128dda0ebc276d7fc65b0ef4d5"
+11m         Normal    Pulled                   pod/infinispan-operator-controller-manager-6b89b6d49d-8dxfq    Successfully pulled image "registry.redhat.io/datagrid/datagrid-8-rhel8-operator@sha256:8040361398886e639ee4e83d1c637e7d4cdfbe128dda0ebc276d7fc65b0ef4d5" in 8.732339889s
+11m         Normal    Created                  pod/infinispan-operator-controller-manager-6b89b6d49d-8dxfq    Created container manager
+11m         Normal    Started                  pod/infinispan-operator-controller-manager-6b89b6d49d-8dxfq    Started container manager
+11m         Normal    SuccessfulCreate         replicaset/infinispan-operator-controller-manager-6b89b6d49d   Created pod: infinispan-operator-controller-manager-6b89b6d49d-8dxfq
+11m         Normal    ScalingReplicaSet        deployment/infinispan-operator-controller-manager              Scaled up replica set infinispan-operator-controller-manager-6b89b6d49d to 1

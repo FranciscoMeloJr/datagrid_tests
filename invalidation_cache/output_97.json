@@ -1,0 +1,32 @@
+{
+    "apiVersion": "infinispan.org/v2alpha1",
+    "kind": "Cache",
+    "metadata": {
+        "annotations": {
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"infinispan.org/v2alpha1\",\"kind\":\"Cache\",\"metadata\":{\"annotations\":{},\"labels\":{\"type\":\"middleware\"},\"name\":\"dg-cluster-nyc-operator-cache-97\",\"namespace\":\"dg-test-nyc\"},\"spec\":{\"clusterName\":\"dg-cluster-nyc\",\"name\":\"operator-cache-97\",\"template\":\"\\u003cinvalidation-cache name=\\\"invbd\\\" mode=\\\"SYNC\\\" statistics=\\\"true\\\" remote-timeout=\\\"17500\\\"\\u003e \\u003ctransaction locking=\\\"PESSIMISTIC\\\" mode=\\\"FULL_XA\\\"/\\u003e  \\u003clocking concurrency-level=\\\"1000\\\" acquire-timeout=\\\"15000\\\" striping=\\\"false\\\"/\\u003e  \\u003c/invalidation-cache\\u003e\"}}\n"
+        },
+        "creationTimestamp": "2022-07-19T03:23:32Z",
+        "generation": 1,
+        "labels": {
+            "type": "middleware"
+        },
+        "name": "dg-cluster-nyc-operator-cache-97",
+        "namespace": "dg-test-nyc",
+        "resourceVersion": "61174",
+        "uid": "898aef63-f7aa-4254-bf1d-46b34cd0e369"
+    },
+    "spec": {
+        "clusterName": "dg-cluster-nyc",
+        "name": "operator-cache-97",
+        "template": "\u003cinvalidation-cache name=\"invbd\" mode=\"SYNC\" statistics=\"true\" remote-timeout=\"17500\"\u003e \u003ctransaction locking=\"PESSIMISTIC\" mode=\"FULL_XA\"/\u003e  \u003clocking concurrency-level=\"1000\" acquire-timeout=\"15000\" striping=\"false\"/\u003e  \u003c/invalidation-cache\u003e"
+    },
+    "status": {
+        "conditions": [
+            {
+                "message": "unable to create cache with template: unexpected HTTP status code (400): unexpected error creating cache, response: ISPN000327: Cannot find a parser for element 'invalidation-cache' in namespace ''. Check that your configuration is up-to date for Infinispan '13.0.10.Final-redhat-00001' and if you have the proper dependency in the classpath",
+                "status": "False",
+                "type": "Ready"
+            }
+        ]
+    }
+}

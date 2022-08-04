@@ -1,0 +1,32 @@
+{
+    "apiVersion": "infinispan.org/v2alpha1",
+    "kind": "Cache",
+    "metadata": {
+        "annotations": {
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"infinispan.org/v2alpha1\",\"kind\":\"Cache\",\"metadata\":{\"annotations\":{},\"labels\":{\"type\":\"middleware\"},\"name\":\"dg-cluster-nyc-operator-cache-99\",\"namespace\":\"dg-test-nyc\"},\"spec\":{\"clusterName\":\"dg-cluster-nyc\",\"name\":\"operator-cache-99\",\"template\":\"\\u003cinvalidation-cache name=\\\"mycache2\\\" mode=\\\"SYNC\\\" remote-timeout=\\\"17500\\\" statistics=\\\"true\\\"\\u003e\\n    \\u003clocking concurrency-level=\\\"1000\\\" acquire-timeout=\\\"15000\\\" striping=\\\"false\\\"/\\u003e\\n\\u003c/invalidation-cache\\u003e\"}}\n"
+        },
+        "creationTimestamp": "2022-07-19T02:49:07Z",
+        "generation": 1,
+        "labels": {
+            "type": "middleware"
+        },
+        "name": "dg-cluster-nyc-operator-cache-99",
+        "namespace": "dg-test-nyc",
+        "resourceVersion": "45567",
+        "uid": "bc22df78-6052-4048-b3d9-3279c6edf625"
+    },
+    "spec": {
+        "clusterName": "dg-cluster-nyc",
+        "name": "operator-cache-99",
+        "template": "\u003cinvalidation-cache name=\"mycache2\" mode=\"SYNC\" remote-timeout=\"17500\" statistics=\"true\"\u003e\n    \u003clocking concurrency-level=\"1000\" acquire-timeout=\"15000\" striping=\"false\"/\u003e\n\u003c/invalidation-cache\u003e"
+    },
+    "status": {
+        "conditions": [
+            {
+                "message": "unable to create cache with template: unexpected HTTP status code (400): unexpected error creating cache, response: ISPN000327: Cannot find a parser for element 'invalidation-cache' in namespace ''. Check that your configuration is up-to date for Infinispan '13.0.10.Final-redhat-00001' and if you have the proper dependency in the classpath",
+                "status": "False",
+                "type": "Ready"
+            }
+        ]
+    }
+}

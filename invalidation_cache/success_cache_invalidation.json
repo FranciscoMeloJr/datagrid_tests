@@ -1,0 +1,40 @@
+{
+    "apiVersion": "infinispan.org/v2alpha1",
+    "kind": "Cache",
+    "metadata": {
+        "annotations": {
+            "infinispan.org/listener-generation": "1"
+        },
+        "creationTimestamp": "2022-07-19T02:53:02Z",
+        "finalizers": [
+            "finalizer.infinispan.org"
+        ],
+        "generateName": "mycache-2-",
+        "generation": 1,
+        "name": "mycache-2-h45mr",
+        "namespace": "dg-test-nyc",
+        "ownerReferences": [
+            {
+                "apiVersion": "infinispan.org/v1",
+                "kind": "Infinispan",
+                "name": "dg-cluster-nyc",
+                "uid": "7863da85-9cc5-45c4-9735-fb537d811ad0"
+            }
+        ],
+        "resourceVersion": "47264",
+        "uid": "e61e7812-cbba-4b8d-892b-a654c78f731d"
+    },
+    "spec": {
+        "clusterName": "dg-cluster-nyc",
+        "name": "mycache2",
+        "template": "invalidationCache:\n  locking:\n    acquireTimeout: \"15000\"\n    concurrencyLevel: \"1000\"\n    striping: \"false\"\n  mode: SYNC\n  remoteTimeout: \"17500\"\n  statistics: \"true\"\n"
+    },
+    "status": {
+        "conditions": [
+            {
+                "status": "True",
+                "type": "Ready"
+            }
+        ]
+    }
+}

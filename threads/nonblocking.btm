@@ -1,0 +1,30 @@
+RULE nonblocking rule2
+CLASS ^NettyEventLoopFactory
+METHOD construct
+AT EXIT
+IF true
+DO
+System.out.println("---------[BYTEMAN-2]---------");
+System.out.println(formatStack());
+traceln("Print: " + $threadAmount);
+ENDRULE
+
+RULE nonblocking rule7
+CLASS org.infinispan.server.core.transport.NettyTransport.buildEventLoop
+METHOD <init>
+AT ENTRY
+IF true
+DO
+System.out.println("---------[BYTEMAN-7]---------");
+ENDRULE
+
+
+RULE nonblocking rule8
+CLASS ^NonRecursiveEventLoopGroup
+METHOD <init>
+AT EXIT
+IF true
+DO
+System.out.println("---------[BYTEMAN-8]---------");
+traceln("Print: " + $executors);
+ENDRULE
