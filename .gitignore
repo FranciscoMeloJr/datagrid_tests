@@ -7,3 +7,5 @@
 *.jks
 truststore.jks
 *hs_error*
+sandbox/*
+inspect/*

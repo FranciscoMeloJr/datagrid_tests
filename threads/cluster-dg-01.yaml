@@ -22,10 +22,10 @@ objects:
   spec:
     configMapName: "${CLUSTER_NAME}-custom-config" 
     container:
-      cpu: 2:2
+      cpu: 2:1
       extraJvmOpts: '-Xlog:gc*=info:file=/tmp/gc.log:time,level,tags,uptimemillis:filecount=10,filesize=1m
               -Dcom.redhat.fips=false -Dio.netty.allocator.type=unpooled'
-      memory: 2Gi
+      memory: 2Gi:1Gi
     logging:
       categories: {}
     replicas: 1
@@ -103,4 +103,4 @@ parameters:
 - name: CLUSTER_NAME
   description: "The name of the RHDG cluster."
   required: false
-  value: "dg-cluster-nyc"
+  value: "dg-cluster-cpu"
