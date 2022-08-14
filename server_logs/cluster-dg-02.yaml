@@ -116,6 +116,18 @@ objects:
             </Policies>
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p (%t) [%c] %m%throwable%n"/>
           </RollingFile>
+
+          <!-- Rolling file access log-->
+          <RollingFile name="HR-ACCESS-FILE"
+                       fileName="/opt/infinispan/server/log/hotrod-access.log"
+                       filePattern="/opt/infinispan/server/log/hotrod-access.log.%d{yyyy-MM-dd}-%i">
+            <Policies>
+              <OnStartupTriggeringPolicy />
+              <SizeBasedTriggeringPolicy size="100 MB" />
+              <TimeBasedTriggeringPolicy />
+            </Policies>
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p (%t) [%c] %m%throwable%n"/>
+          </RollingFile>
         </Appenders>
 
         <Loggers>
@@ -123,6 +135,9 @@ objects:
             <AppenderRef ref="STDOUT" level="INFO"/>
             <AppenderRef ref="FILE"/>
           </Root>
+          <Logger name="org.infinispan.HOTROD_ACCESS_LOG" additivity="false" level="TRACE">
+             <AppenderRef ref="HR-ACCESS-FILE"/>
+          </Logger>
         </Loggers>
       </Configuration>
 
