@@ -25,8 +25,6 @@ objects:
       cpu: '2'
       extraJvmOpts: '-Xlog:gc*=info:file=/tmp/gc.log:time,level,tags,uptimemillis:filecount=10,filesize=1m
               -Dcom.redhat.fips=false'
-      RouterExtraJvmOpts: '-Xlog:gc*=info:file=/tmp/gc.log:time,level,tags,uptimemillis:filecount=10,filesize=1m
-              -Dcom.redhat.fips=false'
       memory: 3Gi
     logging:
       categories: {}

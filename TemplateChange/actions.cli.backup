@@ -1,0 +1,4 @@
+/subsyste=keycloak:add(PT_EXAMPLE)
+/subsyste=keycloak:add(PT_MIN)
+/subsyste=keycloak:add(PT_MEAN)
+/subsyste=keycloak:add(PT_MAX)
